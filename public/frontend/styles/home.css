@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+/* html,body{
+  display: grid;
+  height: 150%;
+  place-items: center;
+  background: white;
+} */
+
+/* view more */
+.btn-event{
+  margin-top: 60px;
+  margin-left: 20px;
+}
+.btn-masuk{
+  color: #F25D9C;
+  outline-style: solid;
+  outline-color: #eaeaea;
+  border-radius: 50px;
+
+}
+.btn-masuk:hover{
+  color: white;
+  background-color: #F25D9C;
+ 
+}
+.btn-search{
+  margin-top: 60px;
+  margin-left: auto
+}
+.input-group form { /* Target the form within .input-group */
+  margin-left: auto; /* Push the form to the right */
+  margin-inline-start: auto;
+}
+
+/* Improved form spacing (optional) */
+.form-control {
+  margin-right: 10px; 
+}
+
+/* detail event  */
+
+::selection{
+  background: rgba(23,162,184,0.3);
+}
+.bungkus{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.bungkus .box{
+  background: #fff;
+  width: 700px;
+  height: 800px;
+  padding: 20px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.desc p{
+  color: #585454;
+  text-align: left;
+}
+.content form .user-details{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  height: 35px;
+  width: 220%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #e1e1e1;
+  border-radius: 50px;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #F25D9C;
+}
+.benefit .square {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.benefit .item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.benefit .item p{
+  margin-top: 15px;
+}
+.benefit .item img {
+  margin-right: 10px; /* Mengatur jarak antara img dengan p */
+}
+.box-pay{
+  background: #fff;
+  width: 450px;
+  height: 400px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  margin-top: -350px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; /* Mengatur elemen-elemen agar tata letaknya berbentuk kolom */
+  align-items: flex-start;
+  
+}
+.box-ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ticket-price {
+  margin-top: 20px;
+}
+.ticket-max{
+  color:red;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+.ticket-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.ticket-label {
+  margin-bottom: 5px;
+}
+
+.total-detail{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  gap: 30px;
+  text-align: center;
+  flex-direction: row;
+}
+.total-bottom-right {
+color:navy; 
+margin-top: 60px; 
+margin-left: 20px;
+}
+
+.plus-btn, .minus-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 40px;
+  justify-content: flex-end;
+}
+
+.additional-buttons button {
+  margin-top: 5px; 
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 40px;
+  border-radius: 30px;
+}
+
+.lanjut{
+  background-color: #F25D9C;
+  color: white;
+  border: 2px solid #F25D9C ;
+
+}
+.batal{
+  background-color:white;
+  color: black;
+  border: 1px solid black;
+
+}
+/* Style for the Add to Cart button */
+
+/* Hover effect for the button */
+.add-to-cart-btn:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+/* Pressed effect for the button */
+.add-to-cart-btn:active {
+  background-color: #3e8e41; /* Even darker green */
+}
+
+.box-pay .text{
+  margin-bottom: 10px;
+}
+
+
+.wrapper .box-pay i.quote{
+  font-size: 20px;
+  color: #17a2b8;
+}
+.wrapper .box-pay .content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.box-pay .info .name{
+  font-weight: 600;
+  font-size: 17px;
+}
+.box .content .image{
+  height: 75px;
+  width: 75px;
+  padding: 3px;
+  background: #17a2b8;
+  border-radius: 50%;
+}
+.content .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.box:hover .content .image img{
+  border-color: #fff;
+}
+
+/* home user */
+.input-nama{
+    width: 200px;
+}
+
+* a{
+    text-decoration: none;
+}
+
+.btn-primer{
+    color: white;
+    background-color: #F25D9C;
+    border-radius: 50px;
+
+}
+.btn-primer:hover{
+    color: #F25D9C;
+    outline-style: solid;
+    outline-color: #eaeaea;
+   
+}
+
+.btn-second{
+    color: #000;
+    background-color: #F0EFEF;
+    border-radius: 50px;
+}
+.cardcustom{
+    border-radius: 36px !important;
+}
+
+.title{
+    margin-bottom: 40px !important;
+}
+
+.garis{
+    border: 1px solid #F25D9C; /* Warna pink (#F25D9C) */
+    background-color: #F25D9C; /* Jika ingin warna garis solid, juga atur warna latar belakangnya */
+    height: 3px; /* Tinggi garis */
+}
+
+@media (max-width: 1045px) {
+    .wrapper .box {
+      width: calc(50% - 10px);
+      margin: 10px 0;
+    }
+  
+    .wrapper .box-pay {
+      width: 100%; /* Mengisi lebar maksimum saat berada di bawah 1045px */
+      margin-top: 20px; /* Atur margin top agar ada jarak antara box sebelumnya dan box-pay */
+    }
+  }
+  
+  @media (max-width: 702px) {
+    .wrapper .box {
+      width: 100%; /* Mengisi lebar maksimum saat lebar layar kurang dari 702px */
+    }
+  
+    .wrapper .box-pay{
+      margin-bottom: 200px;
+    }
+  }
+  
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+    .title-section{
+        flex-direction: column-reverse;
+        }
+}
+
+
+/* css faq */
+
+.bungkus-faq{
+  margin-top: 50px;
+}
+.title-faq{
+  color: #F25D9C;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* css history*/
+
+
+/* Main Ticket Style */
+.ticketContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ticket {
+  background-color: white;
+  color: darkslategray;
+  border-radius: 12px;
+  /* Added border and shadow */
+  border: 1px solid gray; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/* Ticket Content */
+.ticketTitle{
+  padding: 12px 16px 4px;
+}
+.ticketTitle p{
+  font-weight: 700;
+  margin-left: 10px;
+  justify-content: center;
+  margin-top: 5px;
+  color: #F25D9C;
+ 
+}
+hr{
+  margin-top: -10px;
+  width: 100%;
+  border: 1px bold #efefef;
+}
+.ticketDetail{
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 4px 16px;
+  margin-top: 15px;
+}
+.ticketDetail .judul{
+  font-weight: 600;
+  font-size: 18px;
+}
+.ticketDetail .isi{
+  font-size: 15px;
+}
+
+.ticketSubDetail{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1rem;
+  padding: 12px 16px;
+}
+
+.ticketSubDetail .date{
+  margin-top: -20px;
+  color: navy;
+  font-weight: 500;
+}
+
+.ticketSubDetail-footer p{
+  color: grey;
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+
+}
+.barcode{
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+/* Ticket Ripper */
+.ticketRip{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.circleLeft{
+  width: 12px;
+  height: 24px;
+  background-color: grey;
+  border-radius: 0 12px 12px 0;
+  background-color: transparent;
+}
+.ripLine{
+  width: 100%;
+  border-top: 3px solid grey;
+  border-top-style: dashed ;
+}
+.circleRight{
+  width: 12px;
+  height: 24px;
+  background-color: grey;
+  border-radius: 12px 0 0 12px;
+  background-color: transparent;
+}

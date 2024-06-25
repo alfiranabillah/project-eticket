@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 150%;
+  place-items: center;
+  background: white;
+}
+::selection{
+  background: rgba(23,162,184,0.3);
+}
+.bungkus{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -100px;
+}
+.bungkus .box{
+  background: #fff;
+  width: 700px;
+  height: 800px;
+  padding: 20px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.desc p{
+  color: #585454;
+  text-align: left;
+}
+.content form .user-details{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  height: 35px;
+  width: 220%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #e1e1e1;
+  border-radius: 50px;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #F25D9C;
+}
+.benefit .square {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.benefit .item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.benefit .item p{
+  margin-top: 15px;
+}
+.benefit .item img {
+  margin-right: 10px; /* Mengatur jarak antara img dengan p */
+}
+.box-pay{
+  background: #fff;
+  width: 450px;
+  height: 400px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  margin-top: -350px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; /* Mengatur elemen-elemen agar tata letaknya berbentuk kolom */
+  align-items: flex-start;
+  
+}
+.box-ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ticket-price {
+  margin-top: 20px;
+}
+.ticket-max{
+  color:red;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+.ticket-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.ticket-label {
+  margin-bottom: 5px;
+}
+
+.total-detail{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  gap: 30px;
+  text-align: center;
+  flex-direction: row;
+}
+.total-bottom-right {
+color:navy; 
+margin-top: 60px; 
+margin-left: 20px;
+}
+
+.plus-btn, .minus-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 40px;
+  justify-content: flex-end;
+}
+
+.additional-buttons button {
+  margin-top: 5px; 
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 40px;
+  border-radius: 30px;
+}
+
+.lanjut{
+  background-color: #F25D9C;
+  color: white;
+  border: 2px solid #F25D9C ;
+
+}
+.batal{
+  background-color:white;
+  color: black;
+  border: 1px solid black;
+
+}
+/* Style for the Add to Cart button */
+
+/* Hover effect for the button */
+.add-to-cart-btn:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+/* Pressed effect for the button */
+.add-to-cart-btn:active {
+  background-color: #3e8e41; /* Even darker green */
+}
+
+.box-pay .text{
+  margin-bottom: 10px;
+}
+
+
+.wrapper .box-pay i.quote{
+  font-size: 20px;
+  color: #17a2b8;
+}
+.wrapper .box-pay .content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.box-pay .info .name{
+  font-weight: 600;
+  font-size: 17px;
+}
+.box .content .image{
+  height: 75px;
+  width: 75px;
+  padding: 3px;
+  background: #17a2b8;
+  border-radius: 50%;
+}
+.content .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.box:hover .content .image img{
+  border-color: #fff;
+}
+.total-pembayaran {
+  border: 1px solid #ccc; /* Adjust color and width as needed */
+  padding: 5px 10px; /* Add padding for spacing */
+  text-align: left;    /* Align text to the right */
+}
+.detail-order-final p, .detail-order-final li { /* Target semua p dan li di dalam detail-order-final */
+  font-size: 10px; 
+  color: grey;
+}
+.payment-success-img {
+  margin:auto;
+  display:block;
+  font-weight: 700; 
+  text-align: center; 
+  margin-top: 10px;
+  font-size: 18px;
+}
+.payment-success-title {
+  font-size: 16px;
+  margin:auto;
+  display:block;
+  font-weight: 500; 
+  text-align: center; 
+  margin-top: 10px;
+}
+.payment-success-desc {
+  font-size: 12px;
+  margin:auto;
+  display:block;
+  font-weight: 300; 
+  text-align: center; 
+  margin-top: 10px;
+  color: grey;
+
+}
+.btn .btn-secondary {
+  background-color: #F25D9C;
+  color: white;
+  border: 2px solid #F25D9C ;
+
+}
+
+.modal-footer .btn-primary {
+  border-radius: 30px;
+  background-color: #F25D9C;
+  border-color: #F25D9C;
+}
+
+.modal-footer .btn-secondary {
+  background-color:white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) { /* Tablet */
+  .bungkus .box-pay {
+    padding: 32px 24px 16px; /* Contoh: Sesuaikan padding untuk tablet */
+    margin-top: 100px; /* Contoh: Sesuaikan margin untuk tablet */
+  }
+}
+
+@media (max-width: 767px) { /* Mobile */
+  .bungkus .box-pay {
+    padding: 48px 36px 24px;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bungkus .box-pay {
+    padding: 48px 36px 24px;
+    margin-top: 100px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 992px) {
+  .bungkus .box-pay {
+    padding: 48px 36px 24px;
+    margin-top: 100px;
+  }
+}
+
+
+
+/* css faq */
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row  ">
+
+            <div class="topper-login d-flex justify-content-between">
+                <div class="back-button my-auto">
+                    <a href="#"> > Back to dashboard</a>
+                </div>
+
+                <div class="logo d-flex">
+                    <div class="logo-img me-3">
+                        <img src="img/image 102.png" alt="">
+                    </div>
+                    <div class="title my-auto">
+                        K-EVENTS
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+
+    </div>
+
+    <div class="container my-5 ">
+        <div class="row justify-content-center ">
+            <div class="card col-lg-6 col-sm-10 auth-card">
+                <div class="card-body text-center pt-4 " >
+                  <h1>Sign In</h1>
+                  <p>Enter your Username and Password to Login</p>
+                </div>
+                <div class="form-auth mb-5 mx-5">
+                    <form method="POST" action="" id="login-form">
+                     
+                        <div class="mb-3">
+                          <label for="username" class="form-label">'Username'</label>
+                          <input id="username" type="username" class="form-control input-nama"  "username" placeholder="Masukan Username" required autocomplete="username" >
+
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ message }}</strong>
+                              </span>
+                       
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label ">{{ __('Password') }}</label>
+                          <input id="password" type="password" class="form-control input-auth"   placeholder="Masukan Password" required >
+
+                                   
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                   
+                        </div>
+                       
+                        <button type="submit" class="btn btn-auth col-lg-12 bg-primary">login</button>
+                        
+                      </form>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
