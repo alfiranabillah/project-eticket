@@ -36,26 +36,18 @@ Route::get('/history', function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::prefix('user')->group(function () {
-
+    Route::middleware('auth')->group(function () {
+        Route::get('viewhome', [App\Http\Controllers\HomeController::class, 'viewhome'])->name('more');
+        Route::get('viewhomenor', [App\Http\Controllers\HomeController::class, 'viewhomenor'])->name('noraebang');
+        Route::get('viewhomebday', [App\Http\Controllers\HomeController::class, 'viewhomebday'])->name('birthday');
+        Route::get('viewhomecompt', [App\Http\Controllers\HomeController::class, 'viewhomecompt'])->name('competition');
+        Route::get('konten', [App\Http\Controllers\HomeController::class, 'konten'])->name('event');
+        Route::get('history', [App\Http\Controllers\HomeController::class, 'history'])->name('history-page');
+    });
 
     Route::get('login-user', [App\Http\Controllers\HomeController::class, 'sign_in'])->name('login');
-
-    Route::get('faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq-page');
-
     Route::get('register', [App\Http\Controllers\HomeController::class, 'register'])->name('daftar');
-
-    Route::get('viewhome', [App\Http\Controllers\HomeController::class, 'viewhome'])->name('more');
-
-    Route::get('viewhomenor', [App\Http\Controllers\HomeController::class, 'viewhomenor'])->name('noraebang');
-
-    Route::get('viewhomebday', [App\Http\Controllers\HomeController::class, 'viewhomebday'])->name('birthday');
-
-    Route::get('viewhomecompt', [App\Http\Controllers\HomeController::class, 'viewhomecompt'])->name('competition');
-
-    Route::get('konten', [App\Http\Controllers\HomeController::class, 'konten'])->name('event');
-
-    Route::get('history', [App\Http\Controllers\HomeController::class, 'history'])->name('history-page');
-
+    Route::get('faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq-page');
 
 
 

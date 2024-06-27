@@ -22,34 +22,46 @@
                     <p><img src="/frontend/images/tickets.png" alt="">
                     <p class="ms-2 fw-bold mt-1 my-auto">150.000</p>
                     </div>
-                    <button class="btn btn-primer my-5">View More </button>
-                    </div>
+                    @guest
+                    <a class="btn btn-primer my-5" type="button" onclick="showAlert()">View more</a>
+                    @else
+                    <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                    @endguest
+                </div>
                 </div>
                 </div>
             </div>
         </div>
         <div class="heder">
-            <div class="title event mb-4 d-flex justify-content-between rounded-pill">
-                <h5 style="margin: auto; margin-left: 15px;" > Event</h5>
-                <a class="btn btn-primer" type="submit" href="{{ route('more')}}">View more</a>
-            </div>
-            <div class="card cardcustom " style="width: 270px;">
-                <img src="/frontend/images/carats.png" class="card-img-top " style="width: 270px; margin-top: -5px;" alt="...">
-                <div class="card-body">
+        <div class="title event mb-4 d-flex justify-content-between rounded-pill">
+            <h5 style="margin: auto; margin-left: 15px;"> Event</h5>
+            @guest
+                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+            @else
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+            @endguest
+        </div>
+        <div class="card cardcustom" style="width: 270px;">
+            <img src="/frontend/images/carats.png" class="card-img-top" style="width: 270px; margin-top: -5px;" alt="...">
+            <div class="card-body">
                 <div class="card-text d-flex justify-content-between">
-                    <p class="btn btn-second" >22 Sept 2024</p>
+                    <p class="btn btn-second">22 Sept 2024</p>
                     <p><img src="/frontend/images/tickets.png" alt="">
                     <p class="ms-2 fw-bold mt-1 my-auto">75.000</p>
                 </div>
-                <h5 class="card-title">Noraebang Karaoke Party SVT Anniversary"</h5>
-                </div>
+                <h5 class="card-title">Noraebang Karaoke Party SVT Anniversary</h5>
             </div>
         </div>
-        <div class="heder">
-            <div class="title competition mb-4 d-flex justify-content-evenly rounded-pill">
-                <h5 style="margin: auto;"> Competition</h5>
-                <a class="btn btn-primer" type="submit" href="{{ route('competition')}}">View more</a>
-            </div>
+    </div>
+    <div class="heder">
+        <div class="title event mb-4 d-flex justify-content-between rounded-pill">
+            <h5 style="margin: auto; margin-left: 15px;"> Competition</h5>
+            @guest
+                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+            @else
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+            @endguest
+        </div>
             <div class="card cardcustom" style="width: 270px;">
                 <img src="/frontend/images/compt1.png" class="card-img-top " style="width: 270px; margin-top: -5px;" alt="...">
                 <div class="card-body">
@@ -70,6 +82,18 @@
 
                 <div class="title-competition ms-3">
                     <h4>Noraebang</h4>
+                </div>
+            </div>
+            <div class="desc-norebang d-flex mb-4 justify-content-between">
+                <div class="deskripsi col-lg-8">
+                    <p>Rayakan ulang tahun idolamu bersama fanbase</p>
+                </div>
+                <div class="btn-view-more">
+                @guest
+                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+                @else
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                @endguest
                 </div>
             </div>
             @foreach ($items as $item)
@@ -108,7 +132,11 @@
                     <p>Rayakan ulang tahun idolamu bersama fanbase</p>
                 </div>
                 <div class="btn-view-more">
-                <a class="btn btn-primer" type="submit" href="{{ route('birthday')}}">View more</a>
+                @guest
+                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+                @else
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                @endguest
                 </div>
             </div>
 

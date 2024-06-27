@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/frontend/libraries/bootstrap-5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/frontend/styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <title>K-EVENTS</title>
 </head>
 <body>
@@ -64,4 +65,10 @@
     
 </body>
 <script src="/frontend/libraries/bootstrap-5.3.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script>
+        function showAlert() {
+            swal('Anda harus login terlebih dahulu!');
+        }
+    </script>
 </html>
