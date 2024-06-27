@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>KONTEN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
     <link rel="stylesheet" href="/frontend/styles/konten.css">
 </head>
 <body>
@@ -17,79 +18,90 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
 <script type="text/javascript">
  document.addEventListener('DOMContentLoaded', () => {
-  const plusBtn = document.querySelector('.plus-btn');
-  const minusBtn = document.querySelector('.minus-btn');
-  const quantityDisplay = document.querySelector('.quantity');
-  const totalDisplay = document.querySelector('.total-bottom');
-  const priceDisplay = document.querySelector('#price');
-  const lanjutButton = document.querySelector('.lanjut');
+    const plusBtn = document.querySelector('.plus-btn');
+    const minusBtn = document.querySelector('.minus-btn');
+    const quantityDisplay = document.querySelector('.quantity');
+    const totalDisplay = document.querySelector('.total-bottom');
+    const priceDisplay = document.querySelector('#price');
+    const lanjutButton = document.querySelector('.lanjut');
+    const confirmDataButton = document.getElementById('confirm-data'); // Tombol Lanjut di modal
 
-  const ticketPrice = 75000;
-  let currentQuantity = 0;
-  let plusBtnClicked = false;
+    const ticketPrice = 75000;
+    let currentQuantity = 0;
+    let plusBtnClicked = false;
 
-  // Disable tombol "Lanjut" di awal
-  lanjutButton.disabled = true;
+    // Disable tombol "Lanjut" di awal
+    lanjutButton.disabled = true;
+    confirmDataButton.disabled = true; // Disable tombol "Lanjut" di modal juga
 
-  plusBtn.addEventListener('click', () => {
-    plusBtnClicked = true;
-    if (currentQuantity < 1) {
-      currentQuantity++;
-      updateDisplay();
-      // Aktifkan tombol "Lanjut" jika jumlah tiket lebih dari 0
-      lanjutButton.disabled = false;
-    } else {
-      alert("Anda sudah melebihi batas pembelian 1 tiket");
+    plusBtn.addEventListener('click', () => {
+        plusBtnClicked = true;
+        if (currentQuantity < 1) {
+            currentQuantity++;
+            updateDisplay();
+            lanjutButton.disabled = false;
+        } else {
+            swal("Anda sudah melebihi batas pembelian 1 tiket");
+        }
+    });
+
+    minusBtn.addEventListener('click', () => {
+        if (currentQuantity > 0) {
+            currentQuantity--;
+            updateDisplay();
+            if (currentQuantity === 0) {
+                lanjutButton.disabled = true;
+            }
+        }
+    });
+
+    function updateDisplay() {
+        quantityDisplay.textContent = currentQuantity;
+        totalDisplay.textContent = `Total (${currentQuantity} tiket)`;
+        const totalPrice = currentQuantity * ticketPrice;
+        priceDisplay.textContent = `${totalPrice}`;
+        minusBtn.disabled = (currentQuantity === 0);
     }
-  });
 
-  minusBtn.addEventListener('click', () => {
-    if (currentQuantity > 0) {
-      currentQuantity--;
-      updateDisplay();
-      // Nonaktifkan tombol "Lanjut" jika jumlah tiket kembali ke 0
-      if (currentQuantity === 0) {
-        lanjutButton.disabled = true;
-      }
-    }
-  });
-
-  // Event listener untuk modal
-  $('#formModal').on('show.bs.modal', function (event) {
-    if (!plusBtnClicked || currentQuantity !== 1) {
-      event.preventDefault(); // Mencegah modal terbuka
-      alert("Anda belum memilih tiket. Silakan klik tombol + untuk menambah tiket.");
-    }
-  });
-
-  function updateDisplay() {
-    quantityDisplay.textContent = currentQuantity;
-    totalDisplay.textContent = `Total (${currentQuantity} tiket)`;
-    const totalPrice = currentQuantity * ticketPrice;
-    priceDisplay.textContent = `${totalPrice}`;
-    minusBtn.disabled = (currentQuantity === 0);
-  }
-
-  // Inisialisasi tampilan awal
-  updateDisplay();
-});
-
-
-    
-    document.getElementById('confirm-data').addEventListener('click', function (event) {
+    // Event listener untuk perubahan input pada formulir di modal
+    document.getElementById('payment-form').addEventListener('input', function () {
         // Ambil nilai dari form
-        var firstName = document.getElementById('first_name').value;
-        var email = document.getElementById('email').value;
-        var phone = document.getElementById('phone').value;
+        const firstName = document.getElementById('first_name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
 
-        // Isi nilai ke modal 2
+        // Aktifkan/nonaktifkan tombol Lanjut berdasarkan validasi form
+        confirmDataButton.disabled = !firstName || !email || !phone;
+    });
+
+    // Event listener untuk tombol "Lanjut" di modal
+    confirmDataButton.addEventListener('click', function (event) {
+        // Validasi formulir
+        const firstName = document.getElementById('first_name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        if (!firstName || !email || !phone) {
+            // Formulir belum lengkap, jangan lanjutkan dan jangan tampilkan modal konfirmasi
+            return; // Menghentikan eksekusi fungsi
+        }
+
+        // Isi nilai ke modal selanjutnya (confirmationModal)
         document.getElementById('confirm_first_name').innerText = firstName;
         document.getElementById('confirm_email').innerText = email;
         document.getElementById('confirm_phone').innerText = phone;
+
+        // Tampilkan modal konfirmasi setelah validasi berhasil
+        $('#confirmationModal').modal('show');
     });
+
+    // Inisialisasi tampilan awal
+    updateDisplay();
+});
 
     
     document.getElementById('pay-button').addEventListener('click', function (event) {

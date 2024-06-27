@@ -54,7 +54,7 @@
           <button class="plus-btn">+</button>
           
           <div class="ticket-max">max 1 tix/user</div>
-          <div class="total-bottom-right" style="margin-bottom: 50px;" id= "price">IDR 0</div>
+          <div class="total-bottom-right" style="margin-bottom: 50px;" id= "price">0</div>
           
         </div>
         <div class="additional-buttons">
