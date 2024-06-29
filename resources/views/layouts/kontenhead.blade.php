@@ -21,7 +21,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
 <script type="text/javascript">
- document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const plusBtn = document.querySelector('.plus-btn');
     const minusBtn = document.querySelector('.minus-btn');
     const quantityDisplay = document.querySelector('.quantity');
@@ -102,6 +102,7 @@
     // Inisialisasi tampilan awal
     updateDisplay();
 });
+
 
     
     document.getElementById('pay-button').addEventListener('click', function (event) {
