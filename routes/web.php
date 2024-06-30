@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SnapController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,17 +47,8 @@ Route::get('/history', function () {
     });
 
     Route::get('login-user', [App\Http\Controllers\HomeController::class, 'sign_in'])->name('login');
-    Route::get('register', [App\Http\Controllers\HomeController::class, 'register'])->name('daftar');
     Route::get('faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq-page');
 
-
-
-// Route to display the checkout form (GET request)
-Route::get('/checkout', [TransactionController::class, 'index'])->name('checkout');
-
-// Route to process the checkout form submission (POST request)
-Route::post('/checkout', [TransactionController::class, 'checkout'])->name('checkout.post');
-// });
 
 route::prefix('admin')
 ->middleware(['auth','admin'])
@@ -79,7 +71,8 @@ route::prefix('admin')
 
 
 Auth::routes(['verify'=>true]);
-
-
+Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 
 

@@ -9,6 +9,7 @@ use Midtrans\Snap;
 use Midtrans\Notification;
 use Log;
 
+
 class SnapController extends Controller
 {
     public function __construct()
@@ -27,7 +28,7 @@ class SnapController extends Controller
     public function checkout(Request $request)
     {
         $order_id = 'TRX' . uniqid();
-        
+
         $params = [
             'transaction_details' => [
                 'order_id' => $order_id,
