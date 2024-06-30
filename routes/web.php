@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SnapController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,22 +51,25 @@ Route::get('/history', function () {
     Route::get('faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq-page');
 
 
-route::prefix('admin')
-->middleware(['auth','admin'])
-->group(function(){
-        Route::get('/',[App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-        // Route::get('event-page',[App\Http\Controllers\Admin\EventController::class, 'event'])->name('eventdetail');
-        // Route::get('transaction',[App\Http\Controllers\Admin\EventController::class, 'transaction'])->name('transactionadmin');
-        // Route::get('transaction',[App\Http\Controllers\Admin\EventController::class, 'transaction'])->name('transactionadmin');
-        // Route::resouce('Events-data', [App\Http\Controllers\Admin\EventsController::class, 'index'])->name('events');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/register', [AdminAuthController::class, 'showRegisterForm'])->name('admin.register');
+    Route::post('/register', [AdminAuthController::class, 'register']);
+
+    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [AdminAuthController::class, 'login']);
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+    Route::middleware(['auth:admin', 'is_admin'])->group(function () {
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
         Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
 
-        Route::get('event-data',[App\Http\Controllers\Admin\EventsController::class, 'index'])->name('event-page');
-
-        Route::post('add-event',[App\Http\Controllers\Admin\EventsController::class, 'store'])->name('add-data');
-        Route::get('edit-event',[App\Http\Controllers\Admin\EventsController::class, 'update'])->name('edit-data');
-
+        Route::get('event-data', [App\Http\Controllers\Admin\EventsController::class, 'index'])->name('event-page');
+        Route::post('add-event', [App\Http\Controllers\Admin\EventsController::class, 'store'])->name('add-data');
+        Route::get('edit-event', [App\Http\Controllers\Admin\EventsController::class, 'update'])->name('edit-data');
+    });
 });
+
 
 
 
