@@ -71,24 +71,22 @@ Route::prefix('admin')->group(function () {
         Route::get('ticket', [App\Http\Controllers\Admin\EventController::class, 'ticket'])->name('ticket-page');
         Route::get('organizer', [App\Http\Controllers\Admin\EventController::class, 'organizer'])->name('organizer-page');
 
+      
+        
         Route::get('event-data', [EventsController::class, 'index'])->name('event-page');
         Route::post('add-event', [EventsController::class, 'store'])->name('add-data');
         Route::get('edit-event/{id}', [EventsController::class, 'edit'])->name('edit-data');
         Route::put('edit-event/{id}', [EventsController::class, 'update'])->name('update-data');
         Route::delete('delete-event/{id}', [EventsController::class, 'destroy'])->name('delete-data');
-        
-        Route::prefix('admin')->group(function () {
-            Route::get('tickets', [TicketController::class, 'index'])->name('ticket-page');
-            Route::get('tickets/create', [TicketController::class, 'create'])->name('create-ticket');
-            Route::post('tickets', [TicketController::class, 'store'])->name('add-ticket');
-            Route::get('tickets/{id}/edit', [TicketController::class, 'edit'])->name('edit-ticket');
-            Route::put('tickets/{id}', [TicketController::class, 'update'])->name('update-ticket');
-            Route::delete('tickets/{id}', [TicketController::class, 'destroy'])->name('delete-ticket');
-        });
-        
 
-
+         Route::get('ticket-data', [TicketController::class, 'index'])->name('ticket-page');
+        Route::post('add-ticket', [TicketController::class, 'store'])->name('add-ticket');
+        Route::get('edit-ticket/{id}', [TicketController::class, 'edit'])->name('edit-ticket');
+        Route::put('edit-ticket/{id}', [TicketController::class, 'update'])->name('update-ticket');
+        Route::delete('delete-ticket/{id}', [TicketController::class, 'destroy'])->name('delete-ticket');
     });
+    
+    
 });
 
 

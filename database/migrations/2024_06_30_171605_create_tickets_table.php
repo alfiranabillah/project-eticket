@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +12,11 @@ class CreateTicketsTable extends Migration
             $table->string('name_event');
             $table->decimal('price', 8, 2);
             $table->integer('quantity');
-            $table->time('time')->nullable();
-            $table->string('barcode')->nullable();
+            $table->string('location')->nullable();
             $table->dateTime('sale_start')->nullable();
             $table->dateTime('sale_end')->nullable();
+            $table->string('barcode')->nullable();
+            $table->time('time')->nullable();
             $table->timestamps();
         });
     }

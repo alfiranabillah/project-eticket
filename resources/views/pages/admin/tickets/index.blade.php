@@ -18,7 +18,6 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">id_tiket</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
@@ -33,7 +32,6 @@
                             <tbody>
                                 @forelse ($tickets as $ticket)
                                 <tr>
-                                    <td>{{ $ticket->id }}</td>
                                     <td>{{ $ticket->name_event }}</td>
                                     <td>{{ $ticket->location }}</td>
                                     <td>{{ $ticket->price }}</td>
@@ -43,10 +41,9 @@
                                     <td>{{ $ticket->time }}</td>
                                     <td>{{ $ticket->barcode }}</td>
                                     <td class="align-middle">
-                                        <form action="{{ route('edit-ticket', $ticket->id) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            <button type="submit" class="btn btn-info btn-sm">Edit</button>
-                                        </form>
+                                    <a href="{{ route('edit-ticket', $ticket->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                                Edit
+                                            </a>
                                         <form action="{{ route('delete-ticket', $ticket->id) }}" method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')

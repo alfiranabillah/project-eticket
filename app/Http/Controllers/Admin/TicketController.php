@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -17,58 +16,69 @@ class TicketController extends Controller
 
     public function create()
     {
-        $events = Event::all();
-        return view('pages.admin.tickets.create', compact('events'));
+        $tickets = Ticket::all();
+        return view('pages.admin.tickets.create', compact('tickets'));
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name_event' => 'required|string|max:255',
+        $data = $request->validate([
+            'name_event' => 'required',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
             'sale_start' => 'nullable|date',
             'sale_end' => 'nullable|date',
-            'time' => 'nullable|date_format:H:i',
-            'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'location' => 'required|string',
+            'time' => 'nullable|date_format:H:i', 
+            'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            
         ]);
 
-        Ticket::create($request->all());
-
-        return redirect()->route('ticket-page')->with('success', 'Ticket created successfully.');
+        Ticket::create($data);
+        return redirect()->route('ticket-page')->with('success', 'Ticket created successfully!');
     }
 
-    public function edit($id)
+    public function edit(string $id)
     {
         $ticket = Ticket::findOrFail($id);
-        $events = Event::all();
-        return view('pages.admin.tickets.edit', compact('ticket', 'events'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'event_id' => 'required|exists:events,id',
-            'name' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'quantity' => 'required|integer',
-            'sale_start' => 'nullable|date',
-            'sale_end' => 'nullable|date',
-            'time' => 'nullable|date_format:H:i',
+        return view('pages.admin.tickets.edit', [
+            'ticket' => $ticket
         ]);
-
-        $ticket = Ticket::findOrFail($id);
-        $ticket->update($request->all());
-
-        return redirect()->route('ticket-page')->with('success', 'Ticket updated successfully.');
     }
 
+
+    public function update(Request $request, string $id)
+{
+    $request->validate([
+        'name_event' => 'required',
+        'price' => 'required|numeric',
+        'quantity' => 'required|integer',
+        'sale_start' => 'nullable|date',
+        'sale_end' => 'nullable|date',
+        'location' => 'required|string',
+        'time' => 'nullable|date_format:H:i',
+        'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+    ]);
+
+    $ticket = Ticket::findOrFail($id);
+    $data = $request->all();
+
+    if ($request->hasFile('barcode')) {
+        $imageName = time() . '.' . $request->barcode->extension();
+        $request->barcode->move(public_path('images'), $imageName);
+        $data['barcode'] = $imageName;
+    }
+
+    $ticket->update($data);
+
+    return redirect()->route('ticket-page')->with('success', 'Ticket updated successfully!');
+}
+
+    
     public function destroy($id)
     {
         $ticket = Ticket::findOrFail($id);
         $ticket->delete();
-
-        return redirect()->route('ticket-page')->with('success', 'Ticket deleted successfully.');
+        return redirect()->route('ticket-page')->with('success', 'Ticket deleted successfully!');
     }
 }
-
