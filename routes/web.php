@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\Admin\EventsController;
 use App\Http\Controllers\Admin\TicketController;
+use App\Http\Controllers\Admin\TransactionController;
+
 
 
 
@@ -84,6 +86,11 @@ Route::prefix('admin')->group(function () {
         Route::get('edit-ticket/{id}', [TicketController::class, 'edit'])->name('edit-ticket');
         Route::put('edit-ticket/{id}', [TicketController::class, 'update'])->name('update-ticket');
         Route::delete('delete-ticket/{id}', [TicketController::class, 'destroy'])->name('delete-ticket');
+
+
+        Route::get('admin-transaksi', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions.index');
+        Route::get('/admin/users', [App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('admin.users.data');
+
     });
     
     

@@ -13,7 +13,7 @@ class EventController extends Controller
     }
     public function transaction(request $request)
     {
-        return view('pages/admin/transaction');
+        return view('pages/admin/transactions/order');
     }
     public function ticket(request $request)
     {
@@ -22,5 +22,9 @@ class EventController extends Controller
     public function organizer(request $request)
     {
         return view('pages/admin/organizer');
+    }
+    public function user(request $request)
+    {
+        return view('pages/admin/user/data');
     }
 }
