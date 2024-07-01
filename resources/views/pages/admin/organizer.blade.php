@@ -7,20 +7,16 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Ticket Table</h6>
+              <h6>Organizer Table</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                    <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
-                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">event_id</th>
-                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">nama_event</th>
-                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">price</th>
-                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">quantity</th>
-                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">sale_start</th>
-                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">sale_end</th>
+                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">organizer_id</th>
+                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">name</th>
+                      <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">contact</th>
                       <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">created_at</th>
                       <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">update_at</th>
                       <th class="text-secondary opacity-7"></th>
@@ -43,18 +39,6 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                       </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
                       <td class="align-middle">
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
@@ -70,18 +54,6 @@
                       </td>
                       <td class="align-middle text-center text-sm">
                         <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>

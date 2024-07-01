@@ -45,9 +45,15 @@
                         <td>{{ $item->created_at }}</td>
                         <td>{{ $item->updated_at }}</td>
                         <td class="align-middle">
-                            <a href="{{ route('edit-data', $item->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
-                                Edit
-                            </a>
+                           <form action="{{ route('edit-data', $item->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            <button type="submit" class="btn btn-btn-sm">Edit</button>
+                            </form>
+                            <form action="{{ route('delete-data', $item->id) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @empty

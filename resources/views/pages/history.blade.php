@@ -132,6 +132,23 @@
         </div>
     </div>
 </div>
+<div class="col-md-4">
+                  <div class="card">
+                    <div class="card-img-relative">
+                      <img src="/frontend/images/svt.png"  class="card-img-top" alt="Poster Festival Kuliner">
+                      <span class="badge bg-secondary position-absolute top-0 start-0">Berakhir</span>
+                    </div>
+                      <div class="card-body">
+                          <h5 class="card-title fs-6">Noraebang Party Carat</h5>
+                          <p class="card-text">22 September 2024</p>
+                          <p class="card-text">1 Tiket</p>
+                          <a href="#" class="btn btn-primary">Lihat Detail</a>
+                      </div>
+                  </div>
+          </div>
+          </div>    
+      </div>      
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 justify-content-end">
-                    <h6>Event Table</h6>
+                    <h6>Edit Ticket</h6>
                 </div>
 
                 <div class="card-body px-0 pt-0 pb-2">
@@ -21,41 +21,45 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('update-data', $item->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('update-ticket', $ticket->id) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" class="form-control" id="title" name="title" value="{{ $item->title }}" required>
+                            <label for="event_id">Event</label>
+                            <select class="form-control" id="event_id" name="event_id" required>
+                                <option value="">Select Event</option>
+                                @foreach($events as $event)
+                                    <option value="{{ $event->id }}" {{ $event->id == $ticket->event_id ? 'selected' : '' }}>{{ $event->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="location">Location:</label>
-                            <input type="text" class="form-control" id="location" name="location" value="{{ $item->location }}" required>
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $ticket->name }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="status">Status:</label>
-                            <input type="text" class="form-control" id="status" name="status" value="{{ $item->status }}" required>
+                            <label for="price">Price</label>
+                            <input type="text" class="form-control" id="price" name="price" value="{{ $ticket->price }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="start_date">Start Date:</label>
-                            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $item->start_date }}" required>
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $ticket->quantity }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="end_date">End Date:</label>
-                            <input type="date" class="form-control" id="end_date" name="end_date" value="{{ $item->end_date }}" required>
+                            <label for="sale_start">Sale Start</label>
+                            <input type="datetime-local" class="form-control" id="sale_start" name="sale_start" value="{{ $ticket->sale_start ? $ticket->sale_start->format('Y-m-d\TH:i') : '' }}">
                         </div>
                         <div class="form-group">
-                            <label for="poster">Poster:</label>
-                            <input type="file" class="form-control" id="poster" name="poster">
-                            @if($item->poster)
-                                <img src="{{ asset('images/' . $item->poster) }}" width="100" height="100" alt="Poster">
+                            <label for="sale_end">Sale End</label>
+                            <input type="datetime-local" class="form-control" id="sale_end" name="sale_end" value="{{ $ticket->sale_end ? $ticket->sale_end->format('Y-m-d\TH:i') : '' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="barcode">Barcode:</label>
+                            <input type="file" class="form-control" id="barcode" name="barcode">
+                            @if($ticket->barcode)
+                                <img src="{{ asset('images/' . $ticket->barcode) }}" width="100" height="100" alt="barcode">
                             @endif
                         </div>
-                        <div class="form-group">
-                            <label for="desc">Description:</label>
-                            <textarea class="form-control" id="desc" name="desc">{{ $item->desc }}</textarea>
-                        </div>
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -99,5 +103,5 @@
     </footer>
 </div>
 
-@include('pages.admin.event-package.create')
+@include('pages.admin.tickets.create')
 @endsection

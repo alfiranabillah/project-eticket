@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SnapController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\Admin\EventsController;
+use App\Http\Controllers\Admin\TicketController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +67,27 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth:admin', 'is_admin'])->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
         Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users.index');
+        Route::get('transaction', [App\Http\Controllers\Admin\EventController::class, 'transaction'])->name('transaction-page');
+        Route::get('ticket', [App\Http\Controllers\Admin\EventController::class, 'ticket'])->name('ticket-page');
+        Route::get('organizer', [App\Http\Controllers\Admin\EventController::class, 'organizer'])->name('organizer-page');
 
-        Route::get('event-data', [App\Http\Controllers\Admin\EventsController::class, 'index'])->name('event-page');
-        Route::post('add-event', [App\Http\Controllers\Admin\EventsController::class, 'store'])->name('add-data');
-        Route::get('edit-event', [App\Http\Controllers\Admin\EventsController::class, 'update'])->name('edit-data');
+        Route::get('event-data', [EventsController::class, 'index'])->name('event-page');
+        Route::post('add-event', [EventsController::class, 'store'])->name('add-data');
+        Route::get('edit-event/{id}', [EventsController::class, 'edit'])->name('edit-data');
+        Route::put('edit-event/{id}', [EventsController::class, 'update'])->name('update-data');
+        Route::delete('delete-event/{id}', [EventsController::class, 'destroy'])->name('delete-data');
+        
+        Route::prefix('admin')->group(function () {
+            Route::get('tickets', [TicketController::class, 'index'])->name('ticket-page');
+            Route::get('tickets/create', [TicketController::class, 'create'])->name('create-ticket');
+            Route::post('tickets', [TicketController::class, 'store'])->name('add-ticket');
+            Route::get('tickets/{id}/edit', [TicketController::class, 'edit'])->name('edit-ticket');
+            Route::put('tickets/{id}', [TicketController::class, 'update'])->name('update-ticket');
+            Route::delete('tickets/{id}', [TicketController::class, 'destroy'])->name('delete-ticket');
+        });
+        
+
+
     });
 });
 

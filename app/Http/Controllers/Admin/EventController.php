@@ -19,4 +19,8 @@ class EventController extends Controller
     {
         return view('pages/admin/ticket');
     }
+    public function organizer(request $request)
+    {
+        return view('pages/admin/organizer');
+    }
 }
