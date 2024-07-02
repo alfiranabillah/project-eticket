@@ -375,11 +375,11 @@ hr{
   padding: 4px 16px;
   margin-top: 15px;
 }
-.ticketDetail .judul{
-  font-weight: 600;
+.ticketDetail .judul p{
+  font-weight: bold;
   font-size: 18px;
 }
-.ticketDetail .isi{
+.ticketDetail .isi p{
   font-size: 15px;
 }
 

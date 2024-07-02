@@ -53,6 +53,7 @@ Route::get('/history', function () {
         Route::get('viewhomecompt', [App\Http\Controllers\HomeController::class, 'viewhomecompt'])->name('competition');
         Route::get('konten', [App\Http\Controllers\HomeController::class, 'konten'])->name('event');
         Route::get('history', [App\Http\Controllers\HomeController::class, 'history'])->name('history-page');
+        
     });
 
     Route::get('login-user', [App\Http\Controllers\HomeController::class, 'sign_in'])->name('login');

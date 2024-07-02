@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Events;
+use App\Models\Ticket;
+
 
 class HomeController extends Controller
 {
@@ -34,9 +36,14 @@ class HomeController extends Controller
     }
     public function history(request $request)  {
 
-        return View('pages/history');
+        $tickets =Ticket::all();
+
+        return view('pages/history', [
+            'tickets' => $tickets
+        ]);
 
     }
+    
     public function register(request $request)  {
 
         return View('pages/register');

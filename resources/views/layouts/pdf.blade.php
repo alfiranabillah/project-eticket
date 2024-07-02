@@ -60,7 +60,7 @@
             @auth
             <form method="POST" action="{{ route('logout') }}">
               @csrf
-              <button class="btn btn-primer" type="submit">{{Auth::user()->name}}</button>
+              <button class="btn btn-primer" type="submit">{{Auth::user()->first_name}}</button>
             </form>
             @endauth
           </div>
