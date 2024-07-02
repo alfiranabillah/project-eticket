@@ -21,7 +21,7 @@ class EventController extends Controller
     }
     public function organizer(request $request)
     {
-        return view('pages/admin/organizer');
+        return view('pages/admin/organizer/page');
     }
     public function user(request $request)
     {

@@ -34,6 +34,11 @@
                                             <td class="text-center">{{ $transaction->fraud_status }}</td>
                                             <td class="text-center">{{ $transaction->created_at }}</td>
                                             <td class="text-center">{{ $transaction->updated_at }}</td>
+                                            <td class="align-middle">
+                                            <a href="{{ route('delete-transactions', $transaction->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                            DELETE
+                                            </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

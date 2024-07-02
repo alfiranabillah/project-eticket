@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\Admin\EventsController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\CustomerController;
+
 
 
 
@@ -89,8 +91,19 @@ Route::prefix('admin')->group(function () {
 
 
         Route::get('admin-transaksi', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions.index');
-        Route::get('/admin/users', [App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('admin.users.data');
+        Route::get('delete-transaksi/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'destroy'])->name('delete-transactions');
+       
+        Route::get('admin-users', [App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('admin.users.data');
+        Route::post('add-user', [App\Http\Controllers\Admin\CustomerController::class, 'store'])->name('add-users');
+        Route::get('edit-user/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'edit'])->name('edit-users');
+        Route::put('edit-user/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'update'])->name('update-users');
+        Route::get('delete-users/{id}', [App\Http\Controllers\Admin\CustomerController::class, 'destroy'])->name('delete-users');
 
+        Route::get('organizer-data', [App\Http\Controllers\Admin\OrganizerController::class, 'index'])->name('organizer-page');
+        Route::post('add-org', [App\Http\Controllers\Admin\OrganizerController::class, 'store'])->name('add-org');
+        Route::get('edit-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'edit'])->name('edit-org');
+        Route::put('edit-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'update'])->name('update-org');
+        Route::get('delete-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'destroy'])->name('delete-org');
     });
     
     

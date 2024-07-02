@@ -13,4 +13,10 @@ class TransactionController extends Controller
         $transactions = Transaction::all();
         return view('pages.admin.transactions.order', compact('transactions'));
     }
+    public function destroy($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $transaction->delete();
+        return redirect()->route('admin.transactions.index')->with('success', 'Transaction deleted successfully!');
+    }
 }

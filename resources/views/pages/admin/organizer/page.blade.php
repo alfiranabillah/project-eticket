@@ -6,9 +6,9 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>User Table</h6>
+                        <h6>Organizer Table</h6>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Create User
+                  Create Organizer
                 </button>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
@@ -17,35 +17,27 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">first_name</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">last_name</th>
+                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">name</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">phone</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">email_verified_at</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">password</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">role</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">created_at</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">updated_at</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $user)
+                                    @foreach ($organizers as $organizer)
                                         <tr>
-                                            <td class="text-center">{{ $user->id }}</td>
-                                            <td class="text-center">{{ $user->first_name}}</td>
-                                            <td class="text-center">{{ $user->last_name}}</td>
-                                            <td class="text-center">{{ $user->email }}</td>
-                                            <td class="text-center">{{ $user->phone}}</td>
-                                            <td class="text-center">{{ $user->email_verified_at}}</td>
-                                            <td class="text-center">{{ $user->password }}</td>
-                                            <td class="text-center">{{ $user->role }}</td>
-                                            <td class="text-center">{{ $user ->created_at }}</td>
-                                            <td class="text-center">{{ $user ->updated_at }}</td>
+                                            <td class="text-center">{{ $organizer->id }}</td>
+                                            <td class="text-center">{{ $organizer->name}}</td>
+                                            <td class="text-center">{{ $organizer->email }}</td>
+                                            <td class="text-center">{{ $organizer->phone}}</td>
+                                            <td class="text-center">{{ $organizer->created_at }}</td>
+                                            <td class="text-center">{{ $organizer->updated_at }}</td>
                                             <td class="align-middle">
-                                            <a href="{{ route('edit-users', $user->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                            <a href="{{ route('edit-org', $organizer->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
                                             EDIT
                                             </a>
-                                            <a href="{{ route('delete-users', $user->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                            <a href="{{ route('delete-org', $organizer->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
                                             DELETE
                                             </a>
                                             </td>
@@ -93,5 +85,5 @@
     </footer>
 </div>
 
-@include('pages.admin.users.create')
+@include('pages.admin.organizer.create')
 @endsection
