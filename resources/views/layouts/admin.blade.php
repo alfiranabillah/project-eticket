@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="backend/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="backend/assets/img/favicon.png">
   <title>
-    Soft UI Dashboard by Creative Tim
+    Admin K-EVENTS
   </title>
   @include('includes/styles')
 </head>

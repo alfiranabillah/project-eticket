@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
-                <div class="card-header pb-0 justify-content-end">
+                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                     <h6>Detail Ticket</h6>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Create Ticket
+                        Create Data
                     </button>
                 </div>
 
@@ -18,38 +18,44 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">ID Ticket</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Quantity</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Sale Start</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Sale End</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Time</th>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Barcode</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">no</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Ticket</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Quantity</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sale Start</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sale End</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Time</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Barcode</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($tickets as $ticket)
+                                @forelse ($tickets as $index => $ticket)
                                 <tr>
+                                    <td class="text-center">{{ $index + 1 }}</td>
                                     <td>{{ $ticket->id_ticket }}</td>
                                     <td>{{ $ticket->name_event }}</td>
                                     <td>{{ $ticket->location }}</td>
                                     <td>{{ $ticket->price }}</td>
-                                    <td>{{ $ticket->quantity }}</td>
+                                    <td class="text-center">{{ $ticket->quantity }}</td>
                                     <td>{{ $ticket->sale_start }}</td>
                                     <td>{{ $ticket->sale_end }}</td>
                                     <td>{{ $ticket->time }}</td>
                                     <td>{{ $ticket->barcode }}</td>
                                     <td class="align-middle">
-                                    <a href="{{ route('edit-ticket', $ticket->id_ticket) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
-                                                Edit
-                                            </a>
-                                        <form action="{{ route('delete-ticket', $ticket->id_ticket) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
+                                    <button type="button" class="btn btn-secondary btn-square" data-toggle="tooltip" title="Edit" onclick="window.location.href='{{ route('edit-ticket', $ticket->id_ticket) }}'">
+                                    <i class="fas fa-edit fa-lg"></i> <!-- fa-lg for larger size -->
+                                    </button>          
+                                    <form action="{{ route('delete-ticket', $ticket->id_ticket) }}" method="POST" style="display:inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-square " data-toggle="tooltip" title="Delete">
+                                    <i class="fas fa-trash fa-lg"></i> <!-- fa-lg for larger size -->
+                                    </button>
+                                    </form>
+                                     
+                            
                                     </td>
                                 </tr>
                                 @empty
