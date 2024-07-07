@@ -21,11 +21,8 @@
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">last_name</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">phone</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">email_verified_at</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">password</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">role</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">created_at</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">updated_at</th>
                                     </tr>
                                 </thead>
                                 <tbody>

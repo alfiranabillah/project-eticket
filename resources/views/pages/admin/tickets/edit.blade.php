@@ -21,38 +21,44 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('update-ticket', $ticket->id) }}" method="POST">
+                    <form action="{{ route('update-ticket', $ticket->id_ticket) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="name_event">Event</label>
-                            <input type="text" class="form-control" id="name_event" name="name_event" value="{{ old('name_event', $ticket->name_event) }}" required>
+                            <label for="name_event">Title Ticket</label>
+                            <input type="text" class="form-control" id="name_event" name="name_event" value="{{ $ticket->name_event }}">
                         </div>
                         <div class="form-group">
                             <label for="price">Price</label>
-                            <input type="text" class="form-control" id="price" name="price" value="{{ old('price', $ticket->price) }}" required>
+                            <input type="text" class="form-control" id="price" name="price" value="{{ $ticket->price }}">
                         </div>
                         <div class="form-group">
                             <label for="quantity">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity" value="{{ old('quantity', $ticket->quantity) }}" required>
+                            <input type="text" class="form-control" id="quantity" name="quantity" value="{{ $ticket->quantity }}">
                         </div>
                         <div class="form-group">
                             <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location" name="location" value="{{ old('location', $ticket->location) }}" required>
+                            <input type="text" class="form-control" id="location" name="location" value="{{ $ticket->location }}">
                         </div>
                         <div class="form-group">
                             <label for="time">Time</label>
-                            <input type="time" class="form-control" id="time" name="time" value="{{ old('time', $ticket->time) }}" required>
+                            <input type="time" class="form-control" id="time" name="time" value="{{  $ticket->time }}">
                         </div>
                         <div class="form-group">
-                            <label for="sale_start">Sale Start</label>
-                            <input type="date" class="form-control" id="sale_start" name="sale_start" value="{{ old('sale_start', $ticket->sale_start) }}" required>
+                            <label for="sale_start">Start Date</label>
+                            <input type="date" class="form-control" id="sale_start" name="sale_start" value="{{  $ticket->sale_start }}">
                         </div>
                         <div class="form-group">
-                            <label for="sale_end">Sale End</label>
-                            <input type="date" class="form-control" id="sale_end" name="sale_end" value="{{ old('sale_end', $ticket->sale_end) }}" required>
+                            <label for="sale_end">End Date</label>
+                            <input type="date" class="form-control" id="sale_end" name="sale_end" value="{{  $ticket->sale_end }}">
                         </div>
-
+                        <div class="form-group">
+                            <label for="barcode">Barcode</label>
+                            <input type="file" class="form-control" id="barcode" name="barcode" accept=".jpeg,.png,.jpg,.gif,.svg">
+                            @if($ticket->barcode)
+                                <img src="{{ asset('images/' . $ticket->barcode) }}" width="100" height="100" alt="barcode">
+                            @endif
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>

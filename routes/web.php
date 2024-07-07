@@ -86,9 +86,9 @@ Route::prefix('admin')->group(function () {
 
          Route::get('ticket-data', [TicketController::class, 'index'])->name('ticket-page');
         Route::post('add-ticket', [TicketController::class, 'store'])->name('add-ticket');
-        Route::get('edit-ticket/{id}', [TicketController::class, 'edit'])->name('edit-ticket');
-        Route::put('edit-ticket/{id}', [TicketController::class, 'update'])->name('update-ticket');
-        Route::delete('delete-ticket/{id}', [TicketController::class, 'destroy'])->name('delete-ticket');
+        Route::get('edit-ticket/{id_ticket}', [TicketController::class, 'edit'])->name('edit-ticket');
+        Route::put('edit-ticket/{id_ticket}', [TicketController::class, 'update'])->name('update-ticket');
+        Route::delete('delete-ticket/{id_ticket}', [TicketController::class, 'destroy'])->name('delete-ticket');
 
 
         Route::get('admin-transaksi', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions.index');

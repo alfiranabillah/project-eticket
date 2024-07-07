@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class TicketController extends Controller
 {
@@ -30,9 +32,21 @@ class TicketController extends Controller
             'sale_end' => 'nullable|date',
             'location' => 'required|string',
             'time' => 'nullable|date_format:H:i', 
-            'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'order_id' => 'nullable', 
+            'id_event' => 'nullable', 
             
         ]);
+
+        $data['id_ticket'] = 'TIX' . Str::upper(mt_rand(100000, 999999));
+
+        // Handle file upload (poster)
+        if ($request->hasFile('barcode')) {
+            $file = $request->file('barcode');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('images'), $fileName);
+            $data['barcode'] = $fileName;
+        }
 
         Ticket::create($data);
         return redirect()->route('ticket-page')->with('success', 'Ticket created successfully!');
@@ -57,17 +71,22 @@ class TicketController extends Controller
         'sale_end' => 'nullable|date',
         'location' => 'required|string',
         'time' => 'nullable|date_format:H:i',
-        'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'order_id' => 'nullable', 
+        'id_event' => 'nullable', 
+
     ]);
 
     $ticket = Ticket::findOrFail($id);
     $data = $request->all();
 
     if ($request->hasFile('barcode')) {
-        $imageName = time() . '.' . $request->barcode->extension();
-        $request->barcode->move(public_path('images'), $imageName);
-        $data['barcode'] = $imageName;
+        $file = $request->file('barcode');
+        $fileName = $file->getClientOriginalName();
+        $file->move(public_path('images'), $fileName);
+        $data['barcode'] = $fileName;
     }
+
 
     $ticket->update($data);
 

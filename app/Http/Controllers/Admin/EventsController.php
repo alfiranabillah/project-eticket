@@ -37,23 +37,19 @@ class EventsController extends Controller
         // Generate unique event_id with format EVT(unique)
         $data['id_event'] = 'EVT' . Str::upper(mt_rand(100000, 999999));
 
+        // Handle file upload (poster)
+        if ($request->hasFile('poster')) {
+            $file = $request->file('poster');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('images'), $fileName);
+            $data['poster'] = $fileName;
+        }
+
         Event::create($data);
 
         return redirect()->route('event-page')->with('success', 'Event created successfully!');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        // Tampilkan detail event jika diperlukan
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $item = Event::findOrFail($id);
@@ -62,9 +58,6 @@ class EventsController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -82,15 +75,17 @@ class EventsController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('poster')) {
-            $imageName = time().'.'.$request->poster->extension();
-            $request->poster->move(public_path('images'), $imageName);
-            $data['poster'] = $imageName;
+            $file = $request->file('poster');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('images'), $fileName);
+            $data['poster'] = $fileName;
         }
 
         $item->update($data);
 
         return redirect()->route('event-page')->with('success', 'Event updated successfully!');
     }
+
 
     /**
      * Remove the specified resource from storage.

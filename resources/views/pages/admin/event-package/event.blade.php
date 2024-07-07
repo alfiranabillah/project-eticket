@@ -42,9 +42,9 @@
                                         <td>{{ $item->start_date }}</td>
                                         <td>{{ $item->end_date }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('edit-data', $item->id_event) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
-                                                Edit
-                                            </a>
+                                        <a href="{{ route('edit-data', $item->id_event) }}" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-original-title="Edit event">
+        Edit
+    </a>
                                             <form action="{{ route('delete-data', $item->id_event) }}" method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')

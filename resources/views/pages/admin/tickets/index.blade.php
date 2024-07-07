@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 justify-content-end">
-                    <h6>Event Table</h6>
+                    <h6>Detail Ticket</h6>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Create Ticket
                     </button>
@@ -18,7 +18,8 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">ID Ticket</th>
+                                    <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Quantity</th>
@@ -26,12 +27,12 @@
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Sale End</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Time</th>
                                     <th class="text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">Barcode</th>
-                                    <th class="text-secondary opacity-7">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($tickets as $ticket)
                                 <tr>
+                                    <td>{{ $ticket->id_ticket }}</td>
                                     <td>{{ $ticket->name_event }}</td>
                                     <td>{{ $ticket->location }}</td>
                                     <td>{{ $ticket->price }}</td>
@@ -41,10 +42,10 @@
                                     <td>{{ $ticket->time }}</td>
                                     <td>{{ $ticket->barcode }}</td>
                                     <td class="align-middle">
-                                    <a href="{{ route('edit-ticket', $ticket->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                    <a href="{{ route('edit-ticket', $ticket->id_ticket) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
                                                 Edit
                                             </a>
-                                        <form action="{{ route('delete-ticket', $ticket->id) }}" method="POST" style="display:inline-block;">
+                                        <form action="{{ route('delete-ticket', $ticket->id_ticket) }}" method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -25,7 +25,7 @@
             <form action="{{ route('add-ticket')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="name_event">Event</label>
+                    <label for="name_event">Title Ticket</label>
                     <input type="text" class="form-control" id="name_event" name="name_event" value="{{ old('name_event')}}" required>
                 </div>
                 <div class="form-group">
@@ -37,23 +37,23 @@
                     <input type="text" class="form-control" id="quantity" name="quantity"  value="{{ old('quantity')}}" >
                 </div>
                 <div class="form-group">
-                    <label for="location">Location:</label>
+                    <label for="location">Location</label>
                     <input type="text" class="form-control" id="location" name="location"  value="{{ old('location')}}"  required>
                 </div>
                 <div class="form-group">
-                    <label for="time">Time:</label>
+                    <label for="time">Time</label>
                     <input type="time" class="form-control" id="time" name="time"  value="{{ old('time')}}"  required>
                 </div>
                 <div class="form-group">
-                    <label for="sale_start">Date</label>
+                    <label for="sale_start">Start Date</label>
                     <input type="date" class="form-control" id="sale_start" name="sale_start"  value="{{ old('sale_start')}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="sale_end">Date</label>
+                    <label for="sale_end">End Date</label>
                     <input type="date" class="form-control" id="sale_end" name="sale_end"  value="{{ old('sale_end')}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="barcode">Barcode:</label>
+                    <label for="barcode">Barcode</label>
                     <input type="file" class="form-control" id="barcode" name="barcode"  value="{{ old('barcode')}}"  required>
                 </div>
                 <div class="modal-footer">
