@@ -34,10 +34,14 @@ class EventsController extends Controller
     {
         $data = $request->validated();
 
+        // Generate unique event_id with format EVT(unique)
+        $data['id_event'] = 'EVT' . Str::upper(mt_rand(100000, 999999));
+
         Event::create($data);
 
         return redirect()->route('event-page')->with('success', 'Event created successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -64,13 +68,14 @@ class EventsController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer|min:0|max:500000',
             'location' => 'required|string|max:255',
             'status' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'desc' => 'nullable|string',
+            'description' => 'nullable|string',
         ]);
 
         $item = Event::findOrFail($id);

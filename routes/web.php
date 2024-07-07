@@ -80,9 +80,9 @@ Route::prefix('admin')->group(function () {
         
         Route::get('event-data', [EventsController::class, 'index'])->name('event-page');
         Route::post('add-event', [EventsController::class, 'store'])->name('add-data');
-        Route::get('edit-event/{id}', [EventsController::class, 'edit'])->name('edit-data');
-        Route::put('edit-event/{id}', [EventsController::class, 'update'])->name('update-data');
-        Route::delete('delete-event/{id}', [EventsController::class, 'destroy'])->name('delete-data');
+        Route::get('edit-event/{id_event}', [EventsController::class, 'edit'])->name('edit-data');
+        Route::put('edit-event/{id_event}', [EventsController::class, 'update'])->name('update-data');
+        Route::delete('delete-event/{id_event}', [EventsController::class, 'destroy'])->name('delete-data');
 
          Route::get('ticket-data', [TicketController::class, 'index'])->name('ticket-page');
         Route::post('add-ticket', [TicketController::class, 'store'])->name('add-ticket');
@@ -102,8 +102,8 @@ Route::prefix('admin')->group(function () {
 
         Route::get('organizer-data', [App\Http\Controllers\Admin\OrganizerController::class, 'index'])->name('organizer-page');
         Route::post('add-org', [App\Http\Controllers\Admin\OrganizerController::class, 'store'])->name('add-org');
-        Route::get('edit-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'edit'])->name('edit-org');
-        Route::put('edit-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'update'])->name('update-org');
+        Route::get('edit-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'edit'])->name('edit-org');
+        Route::put('edit-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'update'])->name('update-org');
         Route::get('delete-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'destroy'])->name('delete-org');
     });
     

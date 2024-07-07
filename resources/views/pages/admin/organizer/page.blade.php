@@ -16,28 +16,26 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
+                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">id organizer</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">name</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
                                         <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">phone</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">created_at</th>
-                                        <th class="text-center text-lowercase text-secondary text-xxs font-weight-bolder opacity-7">updated_at</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($organizers as $organizer)
                                         <tr>
-                                            <td class="text-center">{{ $organizer->id }}</td>
+                                            <td class="text-center">{{ $organizer->id_organizers }}</td>
                                             <td class="text-center">{{ $organizer->name}}</td>
                                             <td class="text-center">{{ $organizer->email }}</td>
                                             <td class="text-center">{{ $organizer->phone}}</td>
-                                            <td class="text-center">{{ $organizer->created_at }}</td>
-                                            <td class="text-center">{{ $organizer->updated_at }}</td>
+                                           
                                             <td class="align-middle">
-                                            <a href="{{ route('edit-org', $organizer->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                            <a href="{{ route('edit-org', $organizer->id_organizers) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
                                             EDIT
                                             </a>
-                                            <a href="{{ route('delete-org', $organizer->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                            <a href="{{ route('delete-org', $organizer->id_organizers) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
                                             DELETE
                                             </a>
                                             </td>

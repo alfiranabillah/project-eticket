@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Organizer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class OrganizerController extends Controller
 {
@@ -26,6 +28,8 @@ class OrganizerController extends Controller
             'email' => 'required|string',
             'phone' => 'required|string',
         ]);
+
+        $data['id_organizers'] = 'ORG' . Str::upper(mt_rand(100000, 999999));
 
         Organizer::create($data);
         return redirect()->route('organizer-page')->with('success', 'Ticket created successfully!');
@@ -55,7 +59,7 @@ class OrganizerController extends Controller
     return redirect()->route('organizer-page')->with('success', 'Ticket updated successfully!');
 }
 
-    public function destroy($id)
+    public function destroy(string $id)
     {
         $organizer = Organizer::findOrFail($id);
         $organizer->delete();

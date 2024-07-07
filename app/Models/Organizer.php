@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Organizer extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_organizers';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    public $timestamps = false;
 
     protected $fillable = [
-        'id', 'name', 'email', 'phone',
+        'id_organizers', 'name', 'email', 'phone',
     ];
 }

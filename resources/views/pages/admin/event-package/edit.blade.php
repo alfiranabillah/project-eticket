@@ -21,28 +21,32 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('update-data', $item->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('update-data', $item->id_event) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label for="title">Title:</label>
-                            <input type="text" class="form-control" id="title" name="title" value="{{ $item->title }}" required>
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $item->name }}">
                         </div>
                         <div class="form-group">
                             <label for="location">Location:</label>
-                            <input type="text" class="form-control" id="location" name="location" value="{{ $item->location }}" required>
+                            <input type="text" class="form-control" id="location" name="location" value="{{ $item->location }}">
                         </div>
                         <div class="form-group">
                             <label for="status">Status:</label>
-                            <input type="text" class="form-control" id="status" name="status" value="{{ $item->status }}" required>
+                            <input type="text" class="form-control" id="status" name="status" value="{{ $item->status }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="text" class="form-control" id="price" name="price" value="{{ $item->price }}">
                         </div>
                         <div class="form-group">
                             <label for="start_date">Start Date:</label>
-                            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $item->start_date }}" required>
+                            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $item->start_date }}" >
                         </div>
                         <div class="form-group">
                             <label for="end_date">End Date:</label>
-                            <input type="date" class="form-control" id="end_date" name="end_date" value="{{ $item->end_date }}" required>
+                            <input type="date" class="form-control" id="end_date" name="end_date" value="{{ $item->end_date }}" >
                         </div>
                         <div class="form-group">
                             <label for="poster">Poster:</label>
@@ -52,8 +56,8 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="desc">Description:</label>
-                            <textarea class="form-control" id="desc" name="desc">{{ $item->desc }}</textarea>
+                            <label for="description">descriptionription:</label>
+                            <textarea class="form-control" id="description" name="description">{{ $item->description }}</textarea>
                         </div>
 
                         <div class="modal-footer">

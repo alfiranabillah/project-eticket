@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Events;
+use App\Models\Event;
 use App\Models\Ticket;
 
 
@@ -11,8 +11,7 @@ class HomeController extends Controller
 {
     public function index(request $request){
 
-        $items =Events::all();
-
+        $items =Event::all();
         return view('pages/home', [
             'items' => $items
         ]);

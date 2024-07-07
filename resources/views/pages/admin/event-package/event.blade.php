@@ -17,9 +17,13 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                                    <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">id_event</th>
+                                    <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                                     <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
                                     <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                    <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">description</th>
+                                    <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Poster</th>
+                                    <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
                                     <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">Start Date</th>
                                     <th class="text-lowercas text-secondary text-xxs font-weight-bolder opacity-7">End Date</th>
                                     <th class="text-secondary opacity-7"></th>
@@ -28,16 +32,20 @@
                             <tbody>
                                 @foreach($items as $item)
                                     <tr>
-                                        <td>{{ $item->title }}</td>
+                                    <td>{{ $item->id_event}}</td>
+                                        <td>{{ $item->name }}</td>
                                         <td>{{ $item->location }}</td>
                                         <td>{{ $item->status }}</td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>{{ $item->poster }}</td>
+                                        <td>{{ $item->price }}</td>
                                         <td>{{ $item->start_date }}</td>
                                         <td>{{ $item->end_date }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('edit-data', $item->id) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
+                                            <a href="{{ route('edit-data', $item->id_event) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit event">
                                                 Edit
                                             </a>
-                                            <form action="{{ route('delete-data', $item->id) }}" method="POST" style="display:inline-block;">
+                                            <form action="{{ route('delete-data', $item->id_event) }}" method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>

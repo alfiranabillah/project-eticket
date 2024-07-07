@@ -26,15 +26,15 @@
                 @csrf
                 <div class="form-group">
                             <label for="name">name:</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ old('first_name')}}" required>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" required>
                         </div>
                         <div class="form-group">
                             <label for="email">email:</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ old('last_name')}}" required>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email')}}" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">phone:</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="{{ old('email')}}" required>
+                            <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone')}}" required>
                         </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

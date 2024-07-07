@@ -21,7 +21,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('update-org', $organizer->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('update-org', $organizer->id_organizers) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">

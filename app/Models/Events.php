@@ -9,14 +9,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Events extends Model
 {
-    use SoftDeletes;
+    use HasFactory;
+
+    protected $primaryKey = 'id_event';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
-        'title', 'desc', 'location','start_date',
-        'end_date', 'poster', 'status',
-
+       'id_event', 'name', 'location', 'status', 'start_date', 'end_date', 'poster', 'description', 'price', 
     ];
-
     protected $hidden = [
 
     ];
