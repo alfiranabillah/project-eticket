@@ -28,10 +28,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('history-page') }}">History</a>
+                <a class="nav-link" href="{{ route('history-page') }}">Riwayat</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('faq-page') }}">FAQ</a>
@@ -41,7 +41,7 @@
 
             @guest
             <form class="d-flex" role="search">
-              <a class="btn btn-primer" type="submit" href="{{ route('login')}}">Login</a>
+              <a class="btn btn-primer" type="submit" href="{{ route('login')}}">Masuk</a>
             </form>
             @endguest
 

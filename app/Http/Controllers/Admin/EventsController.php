@@ -68,7 +68,7 @@ class EventsController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'nullable|string',
+            'description' => 'nullable|string|max: 500',
         ]);
 
         $item = Event::findOrFail($id);

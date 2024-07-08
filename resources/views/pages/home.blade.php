@@ -4,7 +4,7 @@
 <div class="container mt-5 d-flex justify-content-evenly flex-wrap ">
 <div class="heder">
             <div class="title upcoming mb-4">
-                <h3>Upcoming Event</h3>
+                <h3>Event Mendatang</h3>
 
             </div>
             <div class="card cardcustom mb-3" style="width: 540px; ">
@@ -23,9 +23,9 @@
                     <p class="ms-2 fw-bold mt-1 my-auto">150.000</p>
                     </div>
                     @guest
-                    <a class="btn btn-primer my-5" type="button" onclick="showAlert()">View more</a>
+                    <a class="btn btn-primer my-5" type="button" onclick="showAlert()">Selengkapnya</a>
                     @else
-                    <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                    <a class="btn btn-primer" type="submit" href="{{ route('more') }}">Selengkapnya</a>
                     @endguest
                 </div>
                 </div>
@@ -34,11 +34,11 @@
         </div>
         <div class="heder">
         <div class="title event mb-4 d-flex justify-content-between rounded-pill">
-            <h5 style="margin: auto; margin-left: 15px;"> Event</h5>
+            <h5 style="margin: auto; margin-left: 2px;"> Event</h5>
             @guest
-                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+                <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
             @else
-                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">Selengkapnya</a>
             @endguest
         </div>
         <div class="card cardcustom" style="width: 270px;">
@@ -55,11 +55,11 @@
     </div>
     <div class="heder">
         <div class="title event mb-4 d-flex justify-content-between rounded-pill">
-            <h5 style="margin: auto; margin-left: 15px;"> Competition</h5>
+            <h5 style="margin: auto; margin-left: 2px;"> Competition</h5>
             @guest
-                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+                <a class="btn btn-primer" type="button" onclick="showAlert()" style="margin-left: 20px;">Selengkapnya</a>
             @else
-                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}" style="margin-left: 20px;">Selengkapnya</a>
             @endguest
         </div>
             <div class="card cardcustom" style="width: 270px;">
@@ -90,9 +90,9 @@
                 </div>
                 <div class="btn-view-more">
                 @guest
-                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+                <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
                 @else
-                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">Selengkapnya</a>
                 @endguest
                 </div>
             </div>
@@ -111,7 +111,7 @@
                                 <p><img src="/frontend/images/tickets.png" alt="">
                                 <p class="ms-2 fw-bold mt-1 my-auto">{{ $item->desc }}</p>
                             </div>
-                            <a href="#" class="btn btn-primer my-5">View More </a>
+                            <a href="#" class="btn btn-primer my-5">Selengkapnya </a>
                         </div>
                     </div>
                 </div>
@@ -133,9 +133,9 @@
                 </div>
                 <div class="btn-view-more">
                 @guest
-                <a class="btn btn-primer" type="button" onclick="showAlert()">View more</a>
+                <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
                 @else
-                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">View more</a>
+                <a class="btn btn-primer" type="submit" href="{{ route('more') }}">Selengkapnya</a>
                 @endguest
                 </div>
             </div>

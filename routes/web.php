@@ -84,7 +84,7 @@ Route::prefix('admin')->group(function () {
         Route::put('edit-event/{id_event}', [EventsController::class, 'update'])->name('update-data');
         Route::delete('delete-event/{id_event}', [EventsController::class, 'destroy'])->name('delete-data');
 
-         Route::get('ticket-data', [TicketController::class, 'index'])->name('ticket-page');
+        Route::get('ticket-data', [TicketController::class, 'index'])->name('ticket-page');
         Route::post('add-ticket', [TicketController::class, 'store'])->name('add-ticket');
         Route::get('edit-ticket/{id_ticket}', [TicketController::class, 'edit'])->name('edit-ticket');
         Route::put('edit-ticket/{id_ticket}', [TicketController::class, 'update'])->name('update-ticket');
@@ -105,6 +105,12 @@ Route::prefix('admin')->group(function () {
         Route::get('edit-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'edit'])->name('edit-org');
         Route::put('edit-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'update'])->name('update-org');
         Route::get('delete-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'destroy'])->name('delete-org');
+
+        Route::get('admin-peng', [App\Http\Controllers\Admin\PenggunaController::class, 'index'])->name('admin.pengguna.data');
+        Route::post('add-peng', [App\Http\Controllers\Admin\PenggunaController::class, 'store'])->name('add-peng');
+        Route::get('edit-peng/{id}', [App\Http\Controllers\Admin\PenggunaController::class, 'edit'])->name('edit-peng');
+        Route::put('edit-peng/{id}', [App\Http\Controllers\Admin\PenggunaController::class, 'update'])->name('update-peng');
+        Route::get('delete-peng/{id}', [App\Http\Controllers\Admin\PenggunaController::class, 'destroy'])->name('delete-peng');
     });
     
     

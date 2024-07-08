@@ -35,10 +35,10 @@
                                     <tr>
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td class="text-center">{{ $item->id_event }}</td>
-                                        <td class="text-center">{{ $item->name }}</td>
-                                        <td class="text-center">{{ $item->location }}</td>
+                                        <td class="text-center">{!! nl2br(e(wordwrap($item->name, 20, "\n", true))) !!}</td>
+                                        <td class="text-center">{!! nl2br(e(wordwrap($item->location, 20, "\n", true))) !!}</td>
                                         <td class="text-center">{{ $item->status }}</td>
-                                        <td class="text-center">{{ $item->description }}</td>
+                                        <td class="text-center">{!! nl2br(e(wordwrap($item->description, 20, "\n", true))) !!}</td>
                                         <td class="text-center">{{ $item->poster }}</td>
                                         <td class="text-center">{{ $item->price }}</td>
                                         <td class="text-center">{{ $item->start_date }}</td>
@@ -69,31 +69,11 @@
     <div class="container-fluid">
         <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
-                <div class="copyright text-center text-sm text-muted text-lg-start">
-                    © <script>
-                        document.write(new Date().getFullYear())
-                    </script>,
-                    made with <i class="fa fa-heart"></i> by
-                    <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                    for a better web.
+            <div class="copyright text-center text-sm text-muted text-lg-start mb-7">
+                    © <script>document.write(new Date().getFullYear())</script>, K-EVENTS   
                 </div>
             </div>
-            <div class="col-lg-6">
-                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                    </li>
-                </ul>
-            </div>
+ 
         </div>
     </div>
 </footer>

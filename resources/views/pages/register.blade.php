@@ -4,15 +4,15 @@
 
 <div class="container-regis">
     <div class="back-link">
-        <a href="{{ route('home') }}" class="back-link"> &lt; Back to Dashboard</a>
+        <a href="{{ route('home') }}" class="back-link"> &lt; Kembali ke beranda</a>
         <div class="logo">
             <img src="/frontend/images/image 102.png" width="40px" height="40px">
             <p> K-EVENTS </p>
         </div>
     </div>
-    <div class="title"><b>Sign up</b></div>
-    <div class="direct">Already have an account? 
-        <p><a href="{{ route('login') }}" style="text-decoration: none; color: #F25D9C;">Sign in</a></p>
+    <div class="title"><b>Register</b></div>
+    <div class="direct">Sudah punya akun? 
+        <p><a href="{{ route('login') }}" style="text-decoration: none; color: #F25D9C;">Login</a></p>
     </div>
     <div class="content">
         <form method="POST" action="{{ route('register') }}" autocomplete="off">
@@ -31,7 +31,7 @@
                     <input type="email" name="email" autocomplete="off" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">No HP</span>
+                    <span class="details">Nomor Ponsel</span>
                     <input type="text" name="phone" autocomplete="off" required>
                 </div>
                 <div class="input-box">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="button">
-                <input type="submit" value="Sign Up">
+                <input type="submit" value="Buat Akun">
             </div>
         </form>
     </div>

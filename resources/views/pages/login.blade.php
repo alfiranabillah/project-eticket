@@ -6,14 +6,13 @@
 
 <div class="container">
     <div class="back-link">
-        <a href="{{ route('home') }}" class="back-link"> &lt; Back to Dashboard</a>
+        <a href="{{ route('home') }}" class="back-link"> &lt; Kembali ke beranda</a>
         <div class="logo-login">
             <img src="/frontend/images/image 102.png" width="40px" height="40px">
             <p> K-EVENTS </p>
         </div>
     </div>
-    <div class="title"><b>Sign In</b></div>
-    <div class="direct">Enter your email and password to login</div>
+    <div class="title"><b>Login</b></div>
     <div class="content-login">
         <form method="POST" action="{{ route('login') }}" autocomplete="off">
             @csrf
@@ -30,10 +29,10 @@
             </div>
             <div class="btn-userlogin">
                 <div class="button">
-                    <input type="submit" value="Sign In">
+                    <input type="submit" value="Login">
                 </div>
-                <div class="button">
-                    <a href="{{ route('register') }}" style="font-size: 15px;">Create New Account</a>
+                <div class="direct fs-6" style="margin-top: -15px;">Belum punya akun? 
+                    <p><a href="{{ route('register') }}" style="text-decoration: none; color: #F25D9C;">Register</a></p>
                 </div>
             </div>
         </form>
