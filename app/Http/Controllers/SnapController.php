@@ -8,6 +8,8 @@ use Midtrans\Config;
 use Midtrans\Snap;
 use Midtrans\Notification;
 use Log;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class SnapController extends Controller
@@ -28,6 +30,7 @@ class SnapController extends Controller
     public function checkout(Request $request)
     {
         $order_id = 'TRX' . uniqid();
+        $user = Auth::user();
 
         $params = [
             'transaction_details' => [
@@ -50,6 +53,8 @@ class SnapController extends Controller
                 'order_id' => $order_id,
                 'amount' => $request->amount,
                 'status' => 'unpaid',
+                'user_id' => $user->id, // Simpan user_id
+                'quantity' => 1, // Jumlah tiket yang dibeli, maksimal selalu 1
             ]);
 
             return response()->json(['snap_token' => $snapToken]);
@@ -99,7 +104,13 @@ class SnapController extends Controller
 
     public function history()
     {
-        $transactions = Transaction::select('order_id', 'updated_at')->get();
-        return view('pages.history', compact('transactions'));
+    // Mendapatkan order_id terbaru dari transaksi user yang sedang login
+    $order_id = Transaction::where('user_id', Auth::id())
+                           ->orderBy('created_at', 'desc')
+                           ->pluck('order_id')
+                           ->first();
+
+    return view('pages.history', ['order_id' => $order_id]);
     }
+
 }

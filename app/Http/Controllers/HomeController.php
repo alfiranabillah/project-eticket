@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Ticket;
+use App\Models\Transaction;
+use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -33,16 +35,24 @@ class HomeController extends Controller
         return View('pages/faq');
 
     }
-    public function history(request $request)  {
-
+    public function history()
+    {
+        // Mendapatkan order_id terbaru dari transaksi user yang sedang login
+        $order_id = Transaction::where('user_id', Auth::id())
+                               ->orderBy('created_at', 'desc')
+                               ->pluck('order_id')
+                               ->first();
         $tickets =Ticket::all();
 
         return view('pages/history', [
-            'tickets' => $tickets
+            'tickets' => $tickets,
+            'order_id' => $order_id
         ]);
-
     }
-    
+        
+        
+
+
     public function register(request $request)  {
 
         return View('pages/register');

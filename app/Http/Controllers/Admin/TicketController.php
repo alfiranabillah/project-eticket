@@ -34,7 +34,7 @@ class TicketController extends Controller
             'time' => 'nullable|date_format:H:i', 
             'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'order_id' => 'nullable', 
-            'id_event' => 'nullable', 
+            'id_event' => 'required', 
             
         ]);
 
@@ -73,7 +73,7 @@ class TicketController extends Controller
         'time' => 'nullable|date_format:H:i',
         'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'order_id' => 'nullable', 
-        'id_event' => 'nullable', 
+        'id_event' => 'required', 
 
     ]);
 

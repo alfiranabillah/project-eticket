@@ -37,7 +37,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Ticket Sold</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    10
+                                    5
                                 </h5>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Event Held</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    5
+                                    2
                                 </h5>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                     </table>
                 </div>
                 <div class="d-flex justify-content-end p-2 mt-5">
-                    <a href="{{ route('admin.pengguna.data') }}" class="btn btn-primary text-uppercase">Menu Pengguna</a>
+                    <a href="{{ route('admin.pengguna.data') }}" class="btn btn-primary text-uppercase">Menu User</a>
                 </div>
             </div>
         </div>

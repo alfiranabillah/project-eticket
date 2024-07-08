@@ -31,16 +31,14 @@
                         <div class="modal-body">
                             <div class="content">
                                 <div class="content-top d-flex justify-content-between">
-                                  <p>ID Transaksi</p>
-                                  <P>Waktu Transaksi</P>
+                                  <p style="font-weight: 700;">ID Transaksi</p>
+                                  <P style="font-weight: 700;">Waktu Transaksi</P>
                                 </div>
                                 <div class="content-top-kanan d-flex justify-content-between">
-                                  <p>ID12394XC</p>
+                                  <p>{{ $order_id }}</p>
                                   <P>21-Sep-2024 14:00 WIB</P>
                                 </div>
                                 <div class="content-isi">
-                                  <p style="font-weight: 700;">Metode pembayaran</p>
-                                  <p>QRIS</p>
                                   <p style="margin-top: 50px; font-weight: 600; color: navy;">Daftar Tiket</p>
                                   <p style="font-weight: 600; color:navy;">Noraebang Party "Special PCD Session"</p>
                                 </div>
@@ -92,7 +90,7 @@
                         <div class="ticket">
                             <div class="ticketTitle d-flex justify-content-center">
                                 <img src="/frontend/images/logo.png" alt="" width="30px;" height="30px;">
-                                <p class="fs-6">K-EVENTS</p>
+                                <p class="fs-6">Project by Sunshine</p>
                             </div>
                             <hr>
                             <div class="ticketSubDetail">
@@ -110,7 +108,7 @@
                                 <div class="judul">Lokasi</div>
                                 <div class="isi">Mall Kota Kasablanka</div>
                             </div>
-                            <div class="barcode">
+                            <div class="barcode justify-content-center align-items-center">
                                 <img src="/frontend/images/tiket.png" alt="" width="300px;" height="100px;">
                             </div>
                             <div class="ticketRip">

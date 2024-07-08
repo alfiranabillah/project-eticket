@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EventRequest;
 use App\Models\Event;
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -66,9 +67,9 @@ class EventsController extends Controller
             'location' => 'required|string|max:255',
             'status' => 'required|string|max:255',
             'start_date' => 'required|date',
-            'end_date' => 'required|date',
             'poster' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'nullable|string|max: 500',
+            'id_organizers' => 'nullable|string',
         ]);
 
         $item = Event::findOrFail($id);

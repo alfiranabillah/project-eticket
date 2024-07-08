@@ -18,15 +18,15 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">No</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id_event</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">description</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Poster</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Start Date</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">End Date</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">id event</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">id orgnzr</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Location</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Status</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">description</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Poster</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Date</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -35,6 +35,7 @@
                                     <tr>
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td class="text-center">{{ $item->id_event }}</td>
+                                        <td class="text-center">{{ $item->id_organizers }}</td>
                                         <td class="text-center">{!! nl2br(e(wordwrap($item->name, 20, "\n", true))) !!}</td>
                                         <td class="text-center">{!! nl2br(e(wordwrap($item->location, 20, "\n", true))) !!}</td>
                                         <td class="text-center">{{ $item->status }}</td>
@@ -42,7 +43,6 @@
                                         <td class="text-center">{{ $item->poster }}</td>
                                         <td class="text-center">{{ $item->price }}</td>
                                         <td class="text-center">{{ $item->start_date }}</td>
-                                        <td class="text-center">{{ $item->end_date }}</td>
                                         <td class="text-center">
                                         <button type="button" class="btn btn-secondary btn-square" data-toggle="tooltip" title="Edit" onclick="window.location.href='{{ route('edit-data', $item->id_event) }}'">
                                         <i class="fas fa-edit fa-lg"></i> <!-- fa-lg for larger size -->

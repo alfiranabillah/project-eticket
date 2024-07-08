@@ -87,7 +87,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Tickets</span>
+            <span class="nav-link-text ms-1">Ticket</span>
           </a>
         </li>
         <li class="nav-item">
@@ -108,7 +108,7 @@
                 </g>
               </svg>
             </div>
-            <span class="nav-link-text ms-1">Customers</span>
+            <span class="nav-link-text ms-1">Customer</span>
           </a>
         </li>
         <li class="nav-item">

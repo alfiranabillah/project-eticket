@@ -92,7 +92,7 @@ Route::prefix('admin')->group(function () {
 
 
         Route::get('admin-transaksi', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions.index');
-        Route::get('delete-transaksi/{id}', [App\Http\Controllers\Admin\TransactionController::class, 'destroy'])->name('delete-transactions');
+        Route::get('delete-transaksi/{order_id}', [App\Http\Controllers\Admin\TransactionController::class, 'destroy'])->name('delete-transactions');
        
         Route::get('admin-users', [App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('admin.users.data');
         Route::post('add-user', [App\Http\Controllers\Admin\CustomerController::class, 'store'])->name('add-users');

@@ -25,6 +25,10 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
+                            <label for="id_event">ID Event</label>
+                            <input type="text" class="form-control" id="id_event" name="id_event" value="{{ $ticket->id_event }}">
+                        </div>
+                        <div class="form-group">
                             <label for="name_event">Title Ticket</label>
                             <input type="text" class="form-control" id="name_event" name="name_event" value="{{ $ticket->name_event }}">
                         </div>

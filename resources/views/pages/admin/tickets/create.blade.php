@@ -25,6 +25,10 @@
             <form action="{{ route('add-ticket')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
+                    <label for="id_event">ID Event</label>
+                    <input type="text" class="form-control" id="id_event" name="id_event" value="{{ old('id_event')}}" required>
+                </div>
+                <div class="form-group">
                     <label for="name_event">Title Ticket</label>
                     <input type="text" class="form-control" id="name_event" name="name_event" value="{{ old('name_event')}}" required>
                 </div>

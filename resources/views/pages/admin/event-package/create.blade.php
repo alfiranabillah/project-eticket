@@ -25,37 +25,38 @@
             <form action="{{ route('add-data')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Name Event:</label>
+                    <label for="id_organizers">Organizer ID</label>
+                    <input type="text" name="id_organizers" class="form-control" id="id_organizers" name="id_organizers" value="{{ old('id_organizers')}}">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name Event</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" required>
                 </div>
                 <div class="form-group">
-                    <label for="location">Location:</label>
+                    <label for="location">Location</label>
                     <input type="text" class="form-control" id="location" name="location"  value="{{ old('mlocation')}}"  required>
                 </div>
                 <div class="form-group">
-                    <label for="status">Status:</label>
+                    <label for="status">Status</label>
                     <input type="text" class="form-control" id="status" name="status"  value="{{ old('status')}}"  required>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="description">Description</label>
                     <textarea class="form-control" id="description" name="description"  value="{{ old('description')}}" ></textarea>
                 </div> 
                 <div class="form-group">
-                    <label for="poster">Poster:</label>
+                    <label for="poster">Poster</label>
                     <input type="file" class="form-control" id="poster" name="poster"  value="{{ old('poster')}}" >
                 </div>
                 <div class="form-group">
-                    <label for="price">Price:</label>
+                    <label for="price">Price</label>
                     <input type="text" class="form-control" id="price" name="price"  value="{{ old('price')}}" >
                 </div>
                 <div class="form-group">
-                    <label for="start_date">Start Date:</label>
+                    <label for="start_date">Date</label>
                     <input type="date" class="form-control" id="start_date" name="start_date"  value="{{ old('start_date')}}" required>
                 </div>
-                <div class="form-group">
-                    <label for="end_date">End Date:</label>
-                    <input type="date" class="form-control" id="end_date" name="end_date"  value="{{ old('end_date')}}"  required>
-                </div>
+               
                
                 
 

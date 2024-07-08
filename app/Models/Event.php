@@ -14,6 +14,6 @@ class Event extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-       'id_event', 'id_organizers', 'name', 'location', 'status', 'start_date', 'end_date', 'poster', 'description', 'price', 
+       'id_event', 'id_organizers', 'name', 'location', 'status', 'start_date', 'poster', 'description', 'price', 
     ];
 }

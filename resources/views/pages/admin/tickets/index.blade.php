@@ -18,31 +18,33 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">no</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Ticket</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Quantity</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sale Start</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sale End</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Time</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Barcode</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">no</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">ID Ticket</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">ID Event</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Title</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Location</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Price</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Quantity</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Sale Start</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Sale End</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Time</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Barcode</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($tickets as $index => $ticket)
                                 <tr>
                                     <td class="text-center">{{ $index + 1 }}</td>
-                                    <td>{{ $ticket->id_ticket }}</td>
-                                    <td>{{ $ticket->name_event }}</td>
-                                    <td>{{ $ticket->location }}</td>
-                                    <td>{{ $ticket->price }}</td>
+                                    <td class="text-center">{{ $ticket->id_ticket }}</td>
+                                    <td class="text-center">{{ $ticket->id_event }}</td>
+                                    <td class="text-center">{!! nl2br(e(wordwrap($ticket->name_event, 20, "\n", true))) !!}</td>
+                                    <td class="text-center">{!! nl2br(e(wordwrap($ticket->location, 20, "\n", true))) !!}</td>
+                                    <td class="text-center">{{ $ticket->price }}</td>
                                     <td class="text-center">{{ $ticket->quantity }}</td>
-                                    <td>{{ $ticket->sale_start }}</td>
-                                    <td>{{ $ticket->sale_end }}</td>
-                                    <td>{{ $ticket->time }}</td>
-                                    <td>{{ $ticket->barcode }}</td>
+                                    <td class="text-center">{{ $ticket->sale_start }}</td>
+                                    <td class="text-center">{{ $ticket->sale_end }}</td>
+                                    <td class="text-center">{{ $ticket->time }}</td>
+                                    <td class="text-center">{{ $ticket->barcode }}</td>
                                     <td class="align-middle">
                                     <button type="button" class="btn btn-secondary btn-square" data-toggle="tooltip" title="Edit" onclick="window.location.href='{{ route('edit-ticket', $ticket->id_ticket) }}'">
                                     <i class="fas fa-edit fa-lg"></i> <!-- fa-lg for larger size -->
