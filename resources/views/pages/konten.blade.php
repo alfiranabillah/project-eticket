@@ -4,18 +4,18 @@
   <div class="container-fluid">
   <div class="bungkus mt">
     <div class="box">
-      <p class="fw-bold fs-4"style="color: navy;">Noraebang Party "Special PCD Session"</p>
+      <p class="fw-bold fs-4"style="color: navy;">Noraebang Party Reboot Tour In Jakarta</p>
       <p  style="margin-top: -5px; color: grey; font-size: 20px;"> Mall Kota Kasablanka</p>
-      <img src="/frontend/images/image103.png" width="550px" height="300px" >
+      <img src="/frontend/images/teum.png" width="550px" height="300px" >
       <div class="content">
         <div class="info">
            <p  style="margin-top: 20px; "><b>Deskripsi</b></p>
             <hr width="98%" size="2" color="#F25D9C" noshade>
             <div class="desc" style="margin-top: 10px;">
             <p style="margin-bottom: 10px;"> Noraebang adalah skaraoke ala Korea Selatan yang biasanya dilakukan secara massal.  Noraebang menjadi ajang untuk berkumpul dan bernyanyi bersama teman satu fandom dan sesama K-Popers lainnya. Yuk Chingu kita seru-seruan Karokean lagu- lagu
-           k-pop hits sambil joget bareng </p> 
-           <p>Tanggal       : 30 September 2023</p> 
-           <p>Waktu         : 9.00 - selesai</p>
+            k-pop hits sambil joget bareng </p> 
+           <p>Tanggal       : 25 Juli 2024</p> 
+           <p>Waktu         : 15.00 WIB - selesai</p>
           <p>Lokasi        : Mall Kota Kasablanka</p>
           </div>
           <div class="benefit" style="margin-top: 25px;">
@@ -42,7 +42,7 @@
     <div class="box-pay ">
       <div class="box-ticket">
         <p><b>Rincian Pesanan</b></p>
-        <div class="ticket-price" style="margin-top: -5px;">Noraebang Party <br>"Special PCD Session"</div>
+        <div class="ticket-price" style="margin-top: -5px;">Noraebang Party <br>Reboot Tour In Jakarta</div>
         <div class="total" style="color:grey; margin-top: 20px; ">IDR 75.000</div>
         <hr width="235%" size="1" color="grey" noshade style="margin-top: 10px; margin-bottom: 10px;">
         <div class="total-bottom" style="color:navy; margin-top: 10px;">Total (0 tiket)</div>
@@ -135,7 +135,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#formModal">Kembali</button>
-                <button type="button" class="btn btn-primary" id="pay-button">Pay</button>
+                <button type="button" class="btn btn-primary" id="pay-button">Bayar</button>
             </div>
         </div>
     </div>
