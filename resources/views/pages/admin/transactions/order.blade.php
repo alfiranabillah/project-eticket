@@ -21,6 +21,7 @@
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">status</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">created_at</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">updated_at</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,7 +35,7 @@
                                             <td class="text-center">{{ $transaction->status }}</td>
                                             <td class="text-center">{{ $transaction->created_at }}</td>
                                             <td class="text-center">{{ $transaction->updated_at }}</td>
-                                            <td class="align-middle">
+                                            <td class="text-center">
                                             <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete" onclick="window.location.href='{{ route('delete-transactions', $transaction->order_id) }}'">
                                                 <i class="fas fa-trash fa-lg"></i> <!-- fa-lg for larger size -->
                                             </button>

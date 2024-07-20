@@ -9,14 +9,14 @@
                     <div class="row">
                         <div class="col-4">
                         <div class="icon icon-shape bg-gradient-primary text-white rounded-square shadow d-flex justify-content-center align-items-start">
-                           <i class="fas fa-dollar-sign mt-1 justify-content-center align-items-start"></i>
+                           <i class="fas fa-user mt-1 justify-content-center align-items-start"></i>
                         </div>
                         </div>
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">All Customers</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    Rp 0,00
+                                    3
                                 </h5>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Ticket Sold</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    5
+                                    3
                                 </h5>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    Rp 75000,00
+                                    Rp 225.000,00
                                 </h5>
                             </div>
                         </div>

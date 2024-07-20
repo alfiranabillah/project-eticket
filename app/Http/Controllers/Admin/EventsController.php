@@ -13,13 +13,13 @@ class EventsController extends Controller
 {
     public function index()
     {
-        $items = Event::all();
+        // Mengambil semua event dan mengurutkan berdasarkan tanggal pembuatan (created_at) secara descending
+        $items = Event::orderBy('start_date', 'asc')->get();
 
         return view('pages/admin/event-package/event', [
             'items' => $items
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      */

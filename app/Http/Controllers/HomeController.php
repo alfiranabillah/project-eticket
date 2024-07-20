@@ -60,7 +60,10 @@ class HomeController extends Controller
     }
     public function viewhome(request $request)  {
 
-        return View('pages/viewhome');
+        $items = Event::orderBy('start_date', 'asc')->get();
+        return view('pages/viewhome', [
+            'items' => $items
+        ]);
 
     }
     public function viewhomenor(request $request)  {

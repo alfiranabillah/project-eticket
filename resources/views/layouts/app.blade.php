@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/frontend/libraries/bootstrap-5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/frontend/styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
     <title>K-EVENTS</title>
 </head>
 <body>
@@ -41,14 +43,14 @@
 
             @guest
             <form class="d-flex" role="search">
-              <a class="btn btn-primer" type="submit" href="{{ route('login')}}">Masuk</a>
+              <a class="btn btn-primer-atas" type="submit" href="{{ route('login')}}">Masuk</a>
             </form>
             @endguest
 
             @auth
             <form method="POST" action="{{ route('logout') }}">
               @csrf
-              <button class="btn btn-primer" type="submit">{{Auth::user()->first_name}}</button>
+              <button class="btn btn-primer-atas" type="submit">{{Auth::user()->first_name}}</button>
             </form>
             @endauth
           </div>
@@ -59,16 +61,12 @@
 
   @yield('content')
         
-
-
-     
-    
 </body>
 <script src="/frontend/libraries/bootstrap-5.3.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
         function showAlert() {
-            swal('Anda harus login terlebih dahulu!');
+            swal('Anda harus login terlebih dahulu');
         }
     </script>
 </html>

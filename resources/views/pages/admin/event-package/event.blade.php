@@ -27,7 +27,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Poster</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Date</th>
-                                    <th class="text-secondary opacity-7"></th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">action</th>
                                 </tr>
                             </thead>
                             <tbody>

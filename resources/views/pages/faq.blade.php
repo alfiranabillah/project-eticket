@@ -56,7 +56,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
-                    Bagaimana jika sudah melakukan pembayaran, namun belum menerima email E-ticket?
+                    Bagaimana jika sudah melakukan pembayaran, namun belum menerima E-ticket?
                 </button>
                 </h2>
                 <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">

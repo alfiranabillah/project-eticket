@@ -53,6 +53,7 @@ class AdminAuthController extends Controller
 
         return redirect()->back()->withErrors(['email' => 'These credentials do not match our records.']);
     }
+    
 
     public function logout(Request $request)
     {

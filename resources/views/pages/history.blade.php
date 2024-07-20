@@ -4,10 +4,10 @@
 
 <body>
     <div class="container">
-    <h3 class="mt-3">Riwayat Pesanan Tiket</h3>
+    <h3 class="mt-3">Riwayat Pesanan</h3>
         <div class=" konten-history row">
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-4" style="margin-top: 10px;">
+                <div class="card" style="margin-top: 10px;">
                   <div class="card-img-relative">
                     <img src="/frontend/images/teum.png" class="card-img-top" alt="Poster Festival Kuliner" width="550px" height="300px">
                     <span class="badge bg-success position-absolute top-0 start-0">Berlangsung</span>
@@ -35,8 +35,8 @@
                                   <P style="font-weight: 700;">Waktu Transaksi</P>
                                 </div>
                                 <div class="content-top-kanan d-flex justify-content-between">
-                                  <p>{{ $order_id }}</p>
-                                  <P>09-Juli-2024 | 10:00</P>
+                                  <p class="text-uppercase">{{ $order_id }}</p>
+                                  <P>09 Juli 2024 | 10:00</P>
                                 </div>
                                 <div class="content-isi">
                                   <p style="margin-top: 50px; font-weight: 600; color: navy;">Daftar Tiket</p>
@@ -89,20 +89,19 @@
                     <div class="ticketContainer" id="ticketContent">
                         <div class="ticket">
                             <div class="ticketTitle d-flex justify-content-center">
-                                <img src="/frontend/images/logo.png" alt="" width="30px;" height="30px;">
-                                <p class="fs-6">Project by Sunshine</p>
+                                <p class="fs-7 text-secondary">Project by Teume Indonesia</p>
                             </div>
                             <hr>
                             <div class="ticketSubDetail">
-                                <div class="date fw-bold">ID12394XC</div>
+                                <div class="date fw-bold">TIX732543</div>
                             </div>
                             <div class="ticketDetail">
                                 <div class="judul" style="margin-top: -10px;">Event</div>
-                                <div class="isi">Noraebang Party "Special PCD Session"</div>
+                                <div class="isi">Noraebang Party Reboot Tour In Jakarta</div>
                             </div>
                             <div class="ticketDetail">
                                 <div class="judul">Waktu dan Tanggal</div>
-                                <div class="isi">30 September 2024 | 09:00 - selesai</div>
+                                <div class="isi">25 Juli 2024 | 15:00 - selesai</div>
                             </div>
                             <div class="ticketDetail">
                                 <div class="judul">Lokasi</div>
@@ -110,11 +109,6 @@
                             </div>
                             <div class="barcode justify-content-center align-items-center">
                                 <img src="/frontend/images/tiket.png" alt="" width="300px;" height="100px;">
-                            </div>
-                            <div class="ticketRip">
-                                <div class="circleLeft"></div>
-                                <div class="ripLine"></div>
-                                <div class="circleRight"></div>
                             </div>
                             <div class="ticketSubDetail-footer">
                                 <p>Syarat dan ketentuan berlaku</p>

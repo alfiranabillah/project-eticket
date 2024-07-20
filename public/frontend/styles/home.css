@@ -5,14 +5,6 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-/* html,body{
-  display: grid;
-  height: 150%;
-  place-items: center;
-  background: white;
-} */
-
-/* view more */
 .btn-event{
   margin-top: 60px;
   margin-left: 20px;
@@ -22,7 +14,6 @@
   outline-style: solid;
   outline-color: #eaeaea;
   border-radius: 50px;
-
 }
 .btn-masuk:hover{
   color: white;
@@ -37,14 +28,11 @@
   margin-left: auto; /* Push the form to the right */
   margin-inline-start: auto;
 }
-
-/* Improved form spacing (optional) */
 .form-control {
   margin-right: 10px; 
 }
 
 /* detail event  */
-
 ::selection{
   background: rgba(23,162,184,0.3);
 }
@@ -129,29 +117,6 @@ form .input-box span.details{
   flex-direction: row; /* Mengatur elemen-elemen agar tata letaknya berbentuk kolom */
   align-items: flex-start;
   
-}
-.box-ticket {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.ticket-price {
-  margin-top: 20px;
-}
-.ticket-max{
-  color:red;
-  text-align: center;
-  font-size: 12px;
-  margin-top: 10px;
-  margin-left: -10px;
-}
-.ticket-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.ticket-label {
-  margin-bottom: 5px;
 }
 
 .total-detail{
@@ -259,11 +224,18 @@ margin-left: 20px;
 * a{
     text-decoration: none;
 }
+.btn-primer-atas{
+  color: white;
+  background-color: #F25D9C;
+  border-radius: 50px;
 
+}
 .btn-primer{
     color: white;
     background-color: #F25D9C;
     border-radius: 50px;
+    margin-top: -30px;
+    margin-right: 50px;
 
 }
 .btn-primer:hover{
@@ -404,34 +376,100 @@ hr{
   margin-top: 10px;
 
 }
-.barcode{
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
+.barcode {
+  display: flex;
+  justify-content: center; /* Pusatkan horizontal */
+  align-items: center;    /* Pusatkan vertikal */
+}
+.container.list-noraebang {
+  padding-left: 0;
 }
 
-/* Ticket Ripper */
-.ticketRip{
+.norebang-content {
+  margin-right: 15px;
+}
+
+.cardcustom {
+  margin-left: 0;
+}
+
+.title-section {
+  padding-left: 20px; /* Adjust this value to align with the cards */
+}
+
+.title-competition h4 {
+  margin-left: 0; /* Remove any default left margin */
+}
+
+.footer {
+  background-color: #fcfcfc; ;
+  padding: 20px 0;
+  border-top: 1px solid #e7e7e7;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: rgba(242, 93, 156, 0.7); /* Pink lebih muda dengan sedikit transparansi */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer .footer-container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+.footer .footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.footer .footer-left .logo-container {
+  display: flex;
   align-items: center;
 }
-.circleLeft{
-  width: 12px;
-  height: 24px;
-  background-color: grey;
-  border-radius: 0 12px 12px 0;
-  background-color: transparent;
+.footer .footer-left .logo-container img {
+  height: 40px;
+  margin-right: 10px;
 }
-.ripLine{
-  width: 100%;
-  border-top: 3px solid grey;
-  border-top-style: dashed ;
+.footer .footer-left .logo-container span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #F25D9C;
 }
-.circleRight{
-  width: 12px;
-  height: 24px;
-  background-color: grey;
-  border-radius: 12px 0 0 12px;
-  background-color: transparent;
+.footer .footer-left a {
+  color: #343a40;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: color 0.3s;
+}
+.footer .footer-left a:hover {
+  color: #F25D9C;
+}
+.footer .horizontal-links {
+  display: flex;
+  justify-content: center;
+  margin-left: 50px;
+}
+.footer .horizontal-links a {
+  color: #343a40;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s;
+  margin-top: 20px;
+}
+.footer .horizontal-links a:hover {
+  color: #F25D9C;
+}
+.footer .credit {
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 20px;
 }

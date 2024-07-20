@@ -27,7 +27,7 @@ class EventRequest extends FormRequest
             'price'=>'nullable|integer',
             'location'=>'required|string',
             'start_date'=>'required|date',
-            'poster'=>'required|max:225',
+            'poster'=>'required|max:2048',
             'status'=>'required|max:225',
             'id_organizers' => 'required|string',
 

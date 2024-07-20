@@ -89,7 +89,7 @@
                             </div>
                             <div class="input-box">
                                 <span class="details">No Handphone</span>
-                                <input type="text" name="phone" id="phone" required>
+                                <input type="number" name="phone" id="phone" required>
                             </div>
                         </div>
                         <input type="hidden" name="amount" id="amount">

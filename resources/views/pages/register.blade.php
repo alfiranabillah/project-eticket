@@ -32,7 +32,7 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Nomor Ponsel</span>
-                    <input type="text" name="phone" autocomplete="off" required>
+                    <input type="number" name="phone" autocomplete="off" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>

@@ -21,7 +21,7 @@
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">name</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">email</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">phone</th>
-                                       
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
