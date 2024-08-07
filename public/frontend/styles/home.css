@@ -53,6 +53,7 @@
   padding: 20px;
   border-radius: 3px;
   margin-bottom: 5px;
+  
 }
 
 .desc p{
@@ -127,10 +128,11 @@ form .input-box span.details{
   text-align: center;
   flex-direction: row;
 }
-.total-bottom-right {
-color:navy; 
-margin-top: 60px; 
-margin-left: 20px;
+.coba-tiket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically center */
+  width: 100%; /* Ensure it takes full width */
 }
 
 .plus-btn, .minus-btn {
@@ -228,7 +230,9 @@ margin-left: 20px;
   color: white;
   background-color: #F25D9C;
   border-radius: 50px;
-
+}
+.btn-custom-width {
+  width: 150px; /* Set width as per your requirement */
 }
 .btn-primer{
     color: white;
@@ -296,8 +300,14 @@ margin-left: 20px;
 
 /* css faq */
 
+
 .bungkus-faq{
   margin-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  margin-bottom: 50px;
 }
 .title-faq{
   color: #F25D9C;
@@ -306,7 +316,6 @@ margin-left: 20px;
 }
 
 /* css history*/
-
 
 /* Main Ticket Style */
 .ticketContainer{
@@ -360,22 +369,11 @@ hr{
   justify-content: flex-end;
   font-size: 1rem;
   padding: 12px 16px;
-}
-
-.ticketSubDetail .date{
   margin-top: -20px;
   color: navy;
   font-weight: 500;
 }
 
-.ticketSubDetail-footer p{
-  color: grey;
-  font-weight: 300;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 10px;
-
-}
 .barcode {
   display: flex;
   justify-content: center; /* Pusatkan horizontal */

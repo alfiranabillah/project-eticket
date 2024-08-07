@@ -16,11 +16,11 @@
               <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ol> <div class="faq-one"> 
-                        <li>Login akun dengan email dan password. Jika belum memiliki akun, klik “Create Account” untuk mendaftar</li>
+                        <li>Masuk ke akun dengan email dan password. Jika belum memiliki akun, klik “Register” untuk mendaftar</li>
                         <li>Pilih event yang ingin dipesan dan sesuaikan jumlah tiket yang ingin dipesan, jika sudah klik "Lanjut"</li>
                         <li>Isikan data diri yang sesuai pada “Informasi Pemesanan”, jika sudah klik “Lanjut”</li>
                         <li>Pilih metode pembayaran dan lakukan pembayaran sesuai waktu, jika sudah klik "Cek status pembayaran"</li>
-                        <li>Jika pembayaran berhasil, tiket akan dikirimkan melalui email </li>
+                        <li>Jika pembayaran berhasil, tiket dapat dilihat pada halaman Riwayat </li>
                     </ol>
                 </div>
               </div>
@@ -34,8 +34,11 @@
               <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ol> <div class="faq-two"> 
-                        <li>Virtual Account (Bank BRI, Bank BNI, Bank Mandiri, dan Bank BCA)</li>
+                        <li>Virtual Account</li>
+                        <li>E-wallet</li>
+                        <li>Kartu Debit dan Credit</li>
                         <li>QRIS</li>
+                        <li>Alfamart dan Indomart</li>
                     </ol>
                 </div>
               </div>
@@ -48,8 +51,7 @@
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                E-ticket akan dikirimkan melalui email yang Anda isi. Silakan download e-ticket dan simak informasi terkait pelaksanaan event. 
-                E-ticket juga dapat dilihat pada bagian "Riwayat pesanan"
+                E-ticket dapat dilihat dan diunduh langsung pada halaman Riwayat. 
                 </div>
               </div>
             </div>
@@ -61,9 +63,9 @@
                 </h2>
                 <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body">
-                    <li>Silakan lakukan pengecekan pada Spam/ Junk/ Social/ Promotion di email Anda</li>
-                    <li>E-ticket secara otomatis akan terkirim ke alamat email yang terdaftar jika Anda telah berhasil melakukan pembayaran (event berbayar). Jika tidak menerima, ada kemungkinan terdapat kesalahan dalam menuliskan alamat email, pastikan email yang terdaftar aktif dan benar dalam penulisan (tidak typo). </li>
-                    <li>Jika penulisan email Anda sudah benar dan pada Spam/ Junk/ Social/ Promotion email e-ticket tetap tidak Anda temukan, ada kemungkinan email e-ticket ter-block. Silakan kirimkan aduan Anda melalui email kevents@gmail.com</li>
+                    <li>Silakan lakukan refresh pada halaman Riwayat</li>
+                    <li>E-ticket secara otomatis akan muncul jika Anda telah berhasil melakukan pembayaran (event berbayar). </li>
+                    <li>Jika pembayaran sudah berhasil namun belum menerima E-ticket dapat mengirimkan aduan Anda melalui email kevents@gmail.com</li>
                   </div>
                 </div>
               </div>

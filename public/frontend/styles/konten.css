@@ -114,7 +114,9 @@ form .input-box span.details{
 .ticket-section {
   display: flex;
   flex-direction: column;
+  margin: 0px;
   align-items: flex-end;
+  margin-left: 30px;
 }
 .ticket-label {
   margin-bottom: 5px;
@@ -128,11 +130,7 @@ form .input-box span.details{
   text-align: center;
   flex-direction: row;
 }
-.total-bottom-right {
-color:navy; 
-margin-top: 60px; 
-margin-left: 20px;
-}
+
 
 .plus-btn, .minus-btn {
   border: none;
@@ -144,7 +142,27 @@ margin-left: 20px;
   margin-top: 40px;
   justify-content: flex-end;
 }
-
+.order-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: navy;
+  font-weight: bold;
+  background-color: white; /* Latar belakang putih */
+  border-radius: 15px; /* Sudut melengkung */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+  padding: 10px; /* Padding dalam div */
+  width: 400px; /* Lebar tetap untuk kontainer */
+  margin-top: 100px; /* Margin atas */
+  margin-left: -200px;
+  transform: translateX(-2px); /* Menggeser ke kiri */
+}
+.total-bottom {
+  flex-grow: 1; /* Membuat elemen ini mengisi ruang yang tersedia */
+}
+.total-bottom-right {
+  margin-left: auto; /* Mendorong elemen ke kanan */
+}
 .additional-buttons button {
   margin-top: 5px; 
   cursor: pointer;

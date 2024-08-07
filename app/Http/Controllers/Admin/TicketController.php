@@ -28,13 +28,13 @@ class TicketController extends Controller
             'name_event' => 'required',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
-            'sale_start' => 'nullable|date',
-            'sale_end' => 'nullable|date',
+            'sale_start' => 'required|date',
+            'sale_end' => 'required|date',
             'location' => 'required|string',
-            'time' => 'nullable|date_format:H:i', 
+            'time' => 'required|date_format:H:i', 
             'barcode' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'order_id' => 'nullable', 
-            'id_event' => 'required', 
+            'id_event' => 'required|unique:tickets,id_event',
             
         ]);
 

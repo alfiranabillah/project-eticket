@@ -15,6 +15,7 @@
                                     <tr>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">no</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">user id</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">event id</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">order_id</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">amount</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">quantity</th>
@@ -29,6 +30,7 @@
                                         <tr>
                                             <td class="text-center">{{ $index + 1 }}</td>
                                             <td class="text-center">{{ $transaction->user_id }}</td>
+                                            <td class="text-center">{{ $transaction->event_id }}</td>
                                             <td class="text-center">{{ $transaction->order_id }}</td>
                                             <td class="text-center">{{ $transaction->amount }}</td>
                                             <td class="text-center">{{ $transaction->quantity }}</td>
@@ -36,8 +38,8 @@
                                             <td class="text-center">{{ $transaction->created_at }}</td>
                                             <td class="text-center">{{ $transaction->updated_at }}</td>
                                             <td class="text-center">
-                                            <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete" onclick="window.location.href='{{ route('delete-transactions', $transaction->order_id) }}'">
-                                                <i class="fas fa-trash fa-lg"></i> <!-- fa-lg for larger size -->
+                                            <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete user" onclick="confirmDeletion('{{ route('delete-transactions', ['order_id' => $transaction->order_id]) }}', '{{ $index + 1 }}')">
+                                                <i class="fas fa-trash fa-lg"></i>
                                             </button>
                                             </td>
                                         </tr>

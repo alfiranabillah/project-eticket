@@ -39,8 +39,8 @@
                                         <button type="button" class="btn btn-secondary btn-square" data-toggle="tooltip" title="Edit user" onclick="window.location.href='{{ route('edit-users', $user->id) }}'">
                                                 <i class="fas fa-edit fa-lg"></i> <!-- fa-lg for larger size -->
                                             </button>
-                                            <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete user" onclick="window.location.href='{{ route('delete-users', $user->id) }}'">
-                                                <i class="fas fa-trash fa-lg"></i> <!-- fa-lg for larger size -->
+                                            <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete user" onclick="confirmDeletion('{{ route('delete-users', ['id' => $user->id]) }}', '{{ $index + 1 }}')">
+                                                <i class="fas fa-trash fa-lg"></i>
                                             </button>
                                         </td>
                                     </tr>

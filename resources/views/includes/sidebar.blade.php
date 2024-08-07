@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link " href="{{ route('event-page') }}" >
+          <a class="nav-link " href="{{ route('dashboard') }}" >
             <div class="icon icon-shape icon-sm shadow border-radius-md  text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <title>shop </title>

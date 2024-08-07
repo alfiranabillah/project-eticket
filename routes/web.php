@@ -27,7 +27,9 @@ use App\Http\Controllers\Admin\CustomerController;
 
 
 Route::get('/snap', [SnapController::class, 'index']);
-Route::post('/snap/checkout', [SnapController::class, 'checkout']);
+Route::post('/snap/checkout', [SnapController::class, 'checkout'])->name('checkout');
+// web.php
+
 
 // Menambahkan pengecualian CSRF untuk route '/midtrans/webhook'
 Route::post('/midtrans/webhook', [SnapController::class, 'notificationHandler'])
@@ -48,10 +50,10 @@ Route::get('/history', function () {
 // Route::prefix('user')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('viewhome', [App\Http\Controllers\HomeController::class, 'viewhome'])->name('more');
-        Route::get('viewhomenor', [App\Http\Controllers\HomeController::class, 'viewhomenor'])->name('noraebang');
-        Route::get('viewhomebday', [App\Http\Controllers\HomeController::class, 'viewhomebday'])->name('birthday');
+        Route::get('viewhomenor', [App\Http\Controllers\HomeController::class, 'showNoraebangEvents'])->name('noraebang');
+        Route::get('viewhomebday', [App\Http\Controllers\HomeController::class, 'showBirthdayEvents'])->name('birthday');
         Route::get('viewhomecompt', [App\Http\Controllers\HomeController::class, 'viewhomecompt'])->name('competition');
-        Route::get('konten', [App\Http\Controllers\HomeController::class, 'konten'])->name('event');
+        Route::get('konten/{id_event}', [App\Http\Controllers\HomeController::class, 'show'])->name('event.show');
         Route::get('history', [App\Http\Controllers\HomeController::class, 'history'])->name('history-page');
         
     });
@@ -82,13 +84,13 @@ Route::prefix('admin')->group(function () {
         Route::post('add-event', [EventsController::class, 'store'])->name('add-data');
         Route::get('edit-event/{id_event}', [EventsController::class, 'edit'])->name('edit-data');
         Route::put('edit-event/{id_event}', [EventsController::class, 'update'])->name('update-data');
-        Route::delete('delete-event/{id_event}', [EventsController::class, 'destroy'])->name('delete-data');
+        Route::get('delete-event/{id_event}', [EventsController::class, 'destroy'])->name('delete-data');
 
         Route::get('ticket-data', [TicketController::class, 'index'])->name('ticket-page');
         Route::post('add-ticket', [TicketController::class, 'store'])->name('add-ticket');
         Route::get('edit-ticket/{id_ticket}', [TicketController::class, 'edit'])->name('edit-ticket');
         Route::put('edit-ticket/{id_ticket}', [TicketController::class, 'update'])->name('update-ticket');
-        Route::delete('delete-ticket/{id_ticket}', [TicketController::class, 'destroy'])->name('delete-ticket');
+        Route::get('delete-ticket/{id_ticket}', [TicketController::class, 'destroy'])->name('delete-ticket');
 
 
         Route::get('admin-transaksi', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('admin.transactions.index');
@@ -104,7 +106,7 @@ Route::prefix('admin')->group(function () {
         Route::post('add-org', [App\Http\Controllers\Admin\OrganizerController::class, 'store'])->name('add-org');
         Route::get('edit-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'edit'])->name('edit-org');
         Route::put('edit-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'update'])->name('update-org');
-        Route::get('delete-org/{id}', [App\Http\Controllers\Admin\OrganizerController::class, 'destroy'])->name('delete-org');
+        Route::get('delete-org/{id_organizers}', [App\Http\Controllers\Admin\OrganizerController::class, 'destroy'])->name('delete-org');
 
         Route::get('admin-peng', [App\Http\Controllers\Admin\PenggunaController::class, 'index'])->name('admin.pengguna.data');
         Route::post('add-peng', [App\Http\Controllers\Admin\PenggunaController::class, 'store'])->name('add-peng');

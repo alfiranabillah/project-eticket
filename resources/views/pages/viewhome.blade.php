@@ -7,7 +7,9 @@
             @foreach ($items as $item)
             <div class="norebang-content mb-4" style="margin-top: 40px;">
                 <div class="card cardcustom" style="width: 270px;">
+                <a href="{{ route('event.show', ['id_event' => $item->id_event]) }}">
                     <img src="{{ asset('frontend/images/' . $item->poster) }}" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="{{ $item->name }}">
+                    </a>
                     <div class="card-body">
                         <div class="card-text d-flex justify-content-between" style="margin-top: 10px;">
                             <p class="btn btn-second">{{ \Carbon\Carbon::parse($item->start_date)->format('d M Y') }}</p>

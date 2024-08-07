@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
-use Midtrans\Notification;
-use Log;
 use Illuminate\Support\Facades\Auth;
-
-
+use Log;
 
 class SnapController extends Controller
 {
@@ -28,41 +26,62 @@ class SnapController extends Controller
     }
 
     public function checkout(Request $request)
-    {
-        $order_id = 'TRX' . uniqid();
-        $user = Auth::user();
+{
+    $request->validate([
+        'amount' => 'required|numeric',
+        'first_name' => 'required|string',
+        'email' => 'required|email',
+        'phone' => 'required|string',
+        'event_id' => 'required|string',
+    ]);
 
-        $params = [
-            'transaction_details' => [
-                'order_id' => $order_id,
-                'gross_amount' => $request->amount,
-            ],
-            'customer_details' => [
-                'first_name' => $request->first_name,
-                'last_name' => '',
-                'email' => $request->email,
-                'phone' => $request->phone,
-            ],
-        ];
+    $user = Auth::user();
+    $event_id = $request->event_id;
 
-        try {
-            $snapToken = Snap::getSnapToken($params);
-            Log::info('Snap Token: ' . $snapToken);
+    // Check if user already has a settled transaction for the same event
+    $existingTransaction = Transaction::where('user_id', $user->id)
+        ->where('event_id', $event_id)
+        ->where('status', 'settlement')
+        ->first();
 
-            Transaction::create([
-                'order_id' => $order_id,
-                'amount' => $request->amount,
-                'status' => 'unpaid',
-                'user_id' => $user->id, // Simpan user_id
-                'quantity' => 1, // Jumlah tiket yang dibeli, maksimal selalu 1
-            ]);
-
-            return response()->json(['snap_token' => $snapToken]);
-        } catch (\Exception $e) {
-            Log::error('Midtrans Error: ' . $e->getMessage());
-            return response()->json(['error' => $e->getMessage()]);
-        }
+    if ($existingTransaction) {
+        return response()->json(['error' => 'Maksimal membeli satu kali'], 400);
     }
+
+    $order_id = 'TRX' . uniqid();
+
+    $params = [
+        'transaction_details' => [
+            'order_id' => $order_id,
+            'gross_amount' => $request->amount,
+        ],
+        'customer_details' => [
+            'first_name' => $request->first_name,
+            'last_name' => '',
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ],
+    ];
+
+    try {
+        $snapToken = Snap::getSnapToken($params);
+        Log::info('Snap Token: ' . $snapToken);
+
+        Transaction::create([
+            'order_id' => $order_id,
+            'amount' => $request->amount,
+            'event_id' => $event_id,
+            'status' => 'unpaid',
+            'user_id' => $user->id,
+            'quantity' => 1,
+        ]);
+
+        return response()->json(['snap_token' => $snapToken]);
+    } catch (\Exception $e) {
+        Log::error('Midtrans Error: ' . $e->getMessage());
+        return response()->json(['error' => $e->getMessage()]);
+    }
+}
 
     public function notificationHandler(Request $request)
     {
@@ -79,38 +98,63 @@ class SnapController extends Controller
             return response()->json(['message' => 'Transaction not found'], 404);
         }
 
-        if ($transaction_status == 'capture') {
-            if ($payment_type == 'credit_card') {
-                if ($fraud == 'challenge') {
-                    $transaction->update(['status' => 'pending']);
-                } else {
-                    $transaction->update(['status' => 'settlement']);
+        switch ($transaction_status) {
+            case 'capture':
+                if ($payment_type == 'credit_card') {
+                    if ($fraud == 'challenge') {
+                        $transaction->update(['status' => 'pending']);
+                    } else {
+                        $transaction->update(['status' => 'settlement']);
+                        $this->decreaseTicketQuantity($transaction->event_id, $transaction->quantity);
+                    }
                 }
-            }
-        } elseif ($transaction_status == 'settlement') {
-            $transaction->update(['status' => 'settlement']);
-        } elseif ($transaction_status == 'pending') {
-            $transaction->update(['status' => 'pending']);
-        } elseif ($transaction_status == 'deny') {
-            $transaction->update(['status' => 'denied']);
-        } elseif ($transaction_status == 'expire') {
-            $transaction->update(['status' => 'expired']);
-        } elseif ($transaction_status == 'cancel') {
-            $transaction->update(['status' => 'canceled']);
+                break;
+
+            case 'settlement':
+                $transaction->update(['status' => 'settlement']);
+                $this->decreaseTicketQuantity($transaction->event_id, $transaction->quantity);
+                break;
+
+            case 'pending':
+                $transaction->update(['status' => 'pending']);
+                break;
+
+            case 'deny':
+                $transaction->update(['status' => 'denied']);
+                break;
+
+            case 'expire':
+                $transaction->update(['status' => 'expired']);
+                break;
+
+            case 'cancel':
+                $transaction->update(['status' => 'canceled']);
+                break;
+
+            default:
+                Log::warning('Unknown transaction status: ' . $transaction_status);
+                break;
         }
 
         return response()->json(['message' => 'Notification handled successfully']);
     }
 
-    public function history()
+    private function decreaseTicketQuantity($eventId, $quantity)
     {
-    // Mendapatkan order_id terbaru dari transaksi user yang sedang login
-    $order_id = Transaction::where('user_id', Auth::id())
-                           ->orderBy('created_at', 'desc')
-                           ->pluck('order_id')
-                           ->first();
+        $ticket = Ticket::where('id_event', $eventId)->first();
 
-    return view('pages.history', ['order_id' => $order_id]);
+        if ($ticket) {
+            $ticket->quantity = max(0, $ticket->quantity - $quantity); // Ensure quantity doesn't go below 0
+            $ticket->save();
+        }
     }
 
+    public function history()
+    {
+        $transactions = Transaction::where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('pages.history', ['transactions' => $transactions]);
+    }
 }

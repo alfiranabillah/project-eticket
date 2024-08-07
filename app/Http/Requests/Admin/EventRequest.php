@@ -30,7 +30,7 @@ class EventRequest extends FormRequest
             'poster'=>'required|max:2048',
             'status'=>'required|max:225',
             'id_organizers' => 'required|string',
-
+            'category' => 'nullable|string',
         ];
     }
 }

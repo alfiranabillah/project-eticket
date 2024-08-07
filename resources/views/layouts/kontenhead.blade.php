@@ -11,14 +11,15 @@
 </head>
 <body>
 
-
-@yield('content')
-
-    
+<div class="container-fluid">
+        @yield('content')
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<!-- Tambahkan script SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lanjutButton = document.querySelector('.lanjut');
     const confirmDataButton = document.getElementById('confirm-data'); // Tombol Lanjut di modal
 
-    const ticketPrice = 75000;
+    const ticketPrice = {{ $event->price }};
     let currentQuantity = 0;
     let plusBtnClicked = false;
 
@@ -45,7 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
             updateDisplay();
             lanjutButton.disabled = false;
         } else {
-            swal("Anda sudah melebihi batas pembelian 1 tiket");
+            Swal.fire({
+                text: 'Anda sudah melebihi batas pembelian 1 tiket',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+            });
         }
     });
 
@@ -103,49 +108,71 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDisplay();
 });
 
+document.getElementById('pay-button').addEventListener('click', function (event) {
+    event.preventDefault();
 
-    
-    document.getElementById('pay-button').addEventListener('click', function (event) {
-            event.preventDefault();
-            var form = document.getElementById('payment-form');
-            var formData = new FormData(form);
+    // Ambil form dan buat FormData
+    var form = document.getElementById('payment-form');
+    var formData = new FormData(form);
 
-            // Ambil nilai total harga dari elemen confirm_amount_display
-            var amount = document.getElementById('confirm_amount_display').innerText.replace(/\./g, '').trim(); // Mengambil nilai total harga dan menghilangkan titik
-            
-            formData.append('amount', amount); // Menambahkan amount ke formData
-            
-            fetch('/snap/checkout', {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    // Ambil nilai event_id
+    var event_id = document.getElementById('event_id').value;
+    formData.append('event_id', event_id);
+
+    // Ambil nilai amount dari elemen confirm_amount_display dan hilangkan titik
+    var amount = document.getElementById('confirm_amount_display').innerText.replace(/\./g, '').trim();
+    formData.append('amount', amount);
+
+    // Kirim formData menggunakan fetch
+    fetch('/snap/checkout', {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Response Data:', data);
+        if (data.snap_token) {
+            snap.pay(data.snap_token, {
+                onSuccess: function(result) {
+                    console.log('Payment Success:', result);
+                    window.location.href = '/history';
                 },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Response Data:', data);
-                if (data.snap_token) {
-                    snap.pay(data.snap_token, {
-                        onSuccess: function(result) {
-                            console.log('Payment Success:', result);
-                            window.location.href = '/history';
-                        },
-                        onPending: function(result) {
-                            console.log('Payment Pending:', result);
-                        },
-                        onError: function(result) {
-                            console.log('Payment Error:', result);
-                        },
-                        onClose: function() {
-                            console.log('Customer closed the popup without finishing the payment');
-                        }
-                    });
-                } else {
-                    console.error('Snap Token Error:', data.error);
+                onPending: function(result) {
+                    console.log('Payment Pending:', result);
+                },
+                onError: function(result) {
+                    console.log('Payment Error:', result);
+                },
+                onClose: function() {
+                    console.log('Customer closed the popup without finishing the payment');
                 }
-            })
-            .catch(error => console.error('Fetch Error:', error));
+            });
+        } else {
+            Swal.fire({
+                text: data.error || 'Terjadi kesalahan, silakan coba lagi.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = '/';
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Fetch Error:', error);
+        Swal.fire({
+            title: 'Error',
+            text: 'Terjadi kesalahan pada server. Silakan coba lagi.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            window.location.href = '/';
         });
+    });
+});
+
 </script>
+
 </html>

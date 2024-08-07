@@ -16,7 +16,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">All Customers</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    3
+                                    {{$custCount}}
                                 </h5>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Ticket Sold</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    3
+                                    {{$ticketCount}}
                                 </h5>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Event Held</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    2
+                                {{ $eventCount }}
                                 </h5>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Sales</p>
                                 <h5 class="font-weight-bolder mb-0">
-                                    Rp 225.000,00
+                                Rp. {{ number_format($salesCount, 0, ',', '.') }}
                                 </h5>
                             </div>
                         </div>

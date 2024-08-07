@@ -56,6 +56,10 @@
                     <label for="start_date">Date</label>
                     <input type="date" class="form-control" id="start_date" name="start_date"  value="{{ old('start_date')}}" required>
                 </div>
+                <div class="form-group">
+                    <label for="category">Kategori</label>
+                    <input type="string" class="form-control" id="category" name="category"  value="{{ old('category')}}" required>
+                </div>
                
                
                 

@@ -53,8 +53,8 @@
                                     <form action="{{ route('delete-ticket', $ticket->id_ticket) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-square " data-toggle="tooltip" title="Delete">
-                                    <i class="fas fa-trash fa-lg"></i> <!-- fa-lg for larger size -->
+                                    <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete user" onclick="confirmDeletion('{{ route('delete-ticket', ['id_ticket' => $ticket->id_ticket]) }}', '{{ $index + 1 }}')">
+                                        <i class="fas fa-trash fa-lg"></i>
                                     </button>
                                     </form>
                                     </td>

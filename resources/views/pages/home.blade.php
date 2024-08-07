@@ -1,269 +1,149 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container mt-5 d-flex justify-content-evenly flex-wrap ">
-<div class="heder">
-            <div class="title upcoming mb-4">
-                <h3>Event Mendatang</h3>
-
-            </div>
-            <div class="card cardcustom mb-3" style="width: 540px; ">
-
-                <div class="d-flex">
-                <div class="col-lg-6 col-md-4 my-5 ms-5">
-                    <img src="/frontend/images/hecan.png" class="img-fluid rounded-start " style="width: 500px; " alt="...">
-                </div>
-                <div class="col-md-8 mt-5">
-                    <div class="card-body ms-2"style="margin-top: 50px;">
-                    <h5 class="card-title">Fullsun Love Date</h5>
-                    <p class="btn btn-second">10 Agustus 2024</p>
-                    <div class="d-flex">
-                    <p><img src="/frontend/images/tickets.png" alt="">
-                    <p class="ms-2 fw-bold mt-1 my-auto">150.000</p>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="heder">
-        <div class="title event mb-4 d-flex justify-content-between rounded-pill">
-            <h5 style="margin: auto; margin-left: 2px;"> Event</h5>
-            @guest
-                <a class="btn btn-primer-atas" type="button" onclick="showAlert()">Selengkapnya</a>
-            @else
-                <a class="btn btn-primer-atas" type="submit" href="{{ route('more') }}">Selengkapnya</a>
-            @endguest
-        </div>
-        <div class="card cardcustom" style="width: 270px;">
-            <img src="/frontend/images/carats.png" class="card-img-top" style="width: 270px; margin-top: -5px;" alt="...">
-            <div class="card-body">
-                <div class="card-text d-flex justify-content-between">
-                    <p class="btn btn-second">22 Juli 2024</p>
-                    <p><img src="/frontend/images/tickets.png" alt="">
-                    <p class="ms-2 fw-bold mt-1 my-auto">75.000</p>
-                </div>
-                <h5 class="card-title">Noraebang Karaoke Party SVT Anniversary</h5>
-            </div>
-        </div>
-    </div>
-    <div class="heder">
-        <div class="title event mb-4 d-flex justify-content-between rounded-pill">
-            <h5 style="margin: auto; margin-left: 2px;"> Competition</h5>
-            @guest
-                <a class="btn btn-primer-atas" type="button" onclick="showAlert()" style="margin-left: 20px;">Selengkapnya</a>
-            @else
-                <a class="btn btn-primer-atas" type="submit" href="{{ route('competition') }}" style="margin-left: 20px;">Selengkapnya</a>
-            @endguest
-        </div>
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/compt1.png" class="card-img-top " style="width: 270px; margin-top: -5px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -10px;">
-                        <p class="btn btn-second" >23 Juli 2024</p>
-                        <p><img src="/frontend/images/tickets.png" alt="">
-                        <p class="ms-2 fw-bold mt-1 my-auto">50.000</p>
-                    </div>
-                    <h5 class="card-title">KPOP Party Dance Competition</h5>
-                    </div>
-            </div>
-        </div>
+   <div class="heder">
+      <div class="title upcoming mb-4">
+         <h3>Event Mendatang</h3>
       </div>
-
-      <div class="container noraebang my-4">
-    <div class="title-section d-flex align-items-center mb-2">
-        <div class="col-lg-2 col-md-2 col-sm-4 garis"></div>
-        <div class="title-competition ms-3">
-            <h3>Noraebang</h3>
-        </div>
-    </div>
-
-    <div class="desc-norebang d-flex mb-4 justify-content-between">
-        <div class="deskripsi col-lg-8">
-            <p style="margin-left: 20px; font-size: 19px;">Noraebang time! Saatnya karaoke bareng teman-teman dan seru-seruan bareng lagu favoritmu! 🎤✨</p>
-        </div>
-        <div class="btn-view-more">
-            @guest
-            <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
-            @else
-            <a class="btn btn-primer" type="submit" href="{{ route('noraebang') }}">Selengkapnya</a>
-            @endguest
-        </div>
-    </div>
-
-    <div class="container list-noraebang d-flex justify-content-evenly flex-wrap" style="padding-left: 0;">
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/nor3.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -5px">
-                        <p class="btn btn-second">20 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between" style="margin-top: -5px;">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 80.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Oneweve's Cosmic Serenade</h5>
-                </div>
+      <div class="card cardcustom mb-3" style="width: 540px; ">
+         <div class="d-flex">
+            <div class="col-lg-6 col-md-4 my-5 ms-5">
+               <img src="/frontend/images/hecan.png" class="img-fluid rounded-start " style="width: 500px; " alt="...">
             </div>
-        </div>
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/teum.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -5px;">
-                        <p class="btn btn-second">25 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between ">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 75.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Noraebang Party Reboot Tour In Jakarta</h5>
-                </div>
+            <div class="col-md-8 mt-5">
+               <div class="card-body ms-2"style="margin-top: 50px;">
+                  <h5 class="card-title">Fullsun Love Date</h5>
+                  <p class="btn btn-second">10 Agustus 2024</p>
+                  <div class="d-flex">
+                     <p><img src="/frontend/images/tickets.png" alt="">
+                     <p class="ms-2 fw-bold mt-1 my-auto">150.000</p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/jyp.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between">
-                        <p class="btn btn-second">27 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between ">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 80.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">JYP Nation Party O'Clock</h5>
-                </div>
+         </div>
+      </div>
+   </div>
+   <div class="heder">
+      <div class="title event mb-4 d-flex justify-content-between rounded-pill">
+         <h5 style="margin: auto; margin-left: 2px;"> Event</h5>
+         @guest
+         <a class="btn btn-primer-atas" type="button" onclick="showAlert()">Selengkapnya</a>
+         @else
+         <a class="btn btn-primer-atas" type="submit" href="{{ route('more') }}">Selengkapnya</a>
+         @endguest
+      </div>
+      <div class="card cardcustom" style="width: 270px;">
+         <img src="/frontend/images/carats.png" class="card-img-top" style="width: 270px; margin-top: -5px;" alt="...">
+         <div class="card-body">
+            <div class="card-text d-flex justify-content-between">
+               <p class="btn btn-second">22 Aug 2024</p>
+               <p class="mt-2"><img src="/frontend/images/tickets.png" alt="">
+               <p class="fw-bold mt-2 my-auto">75.000</p>
             </div>
-        </div>
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/friday (1).png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -5px;">
-                        <p class="btn btn-second">29 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between ">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 100.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Friday Noraebang with Zirius</h5>
-                </div>
+            <h5 class="card-title">Noraebang Karaoke Party SVT Anniversary</h5>
+         </div>
+      </div>
+   </div>
+   <div class="heder">
+      <div class="title event mb-4 d-flex justify-content-between rounded-pill">
+         <h5 style="margin: auto; margin-left: 2px;"> Competition</h5>
+         @guest
+         <a class="btn btn-primer-atas" type="button" onclick="showAlert()" style="margin-left: 20px;">Selengkapnya</a>
+         @else
+         <a class="btn btn-primer-atas" type="submit" href="{{ route('competition') }}" style="margin-left: 20px;">Selengkapnya</a>
+         @endguest
+      </div>
+      <div class="card cardcustom" style="width: 270px;">
+         <img src="/frontend/images/compt1.png" class="card-img-top " style="width: 270px; margin-top: -5px;" alt="...">
+         <div class="card-body">
+            <div class="card-text d-flex justify-content-between" style="margin-top: -10px;">
+               <p class="btn btn-second" >21 Aug 2024</p>
+               <p><img src="/frontend/images/tickets.png" alt="">
+               <p class="fw-bold mt-1 my-auto">50.000</p>
             </div>
-        </div>
-    </div>
+            <h5 class="card-title">KPOP Party Dance Competition</h5>
+         </div>
+      </div>
+   </div>
 </div>
-
 <div class="container noraebang my-4">
-    <div class="title-section d-flex align-items-center mb-2">
-        <div class="col-lg-2 col-md-2 col-sm-4 garis"></div>
-        <div class="title-competition ms-3">
-            <h3>Birthday Project</h3>
-        </div>
-    </div>
-
-    <div class="desc-norebang d-flex mb-4 justify-content-between">
-        <div class="deskripsi col-lg-8">
-            <p style="margin-left: 20px; font-size: 19px;">Birthday bash alert! 🎁✨ Yuk, ikut Birthday Project Event dan buat hari spesial idolamu semakin istimewa</p>
-        </div>
-        <div class="btn-view-more">
-            @guest
-            <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
-            @else
-            <a class="btn btn-primer" type="submit" href="{{ route('birthday') }}">Selengkapnya</a>
-            @endguest
-        </div>
-    </div>
-
-    <div class="container list-noraebang d-flex justify-content-evenly flex-wrap" style="padding-left: 0;">
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/image 91.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -5px">
-                        <p class="btn btn-second">17 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between" style="margin-top: -5px;">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 100.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Pocha Gyu's World - Kim Mingyu</h5>
-                </div>
+   <div class="title-section d-flex align-items-center mb-2">
+      <div class="col-lg-2 col-md-2 col-sm-4 garis"></div>
+      <div class="title-competition ms-3">
+         <h3>Noraebang</h3>
+      </div>
+   </div>
+   <div class="desc-norebang d-flex mb-4 justify-content-between">
+      <div class="deskripsi col-lg-8">
+         <p style="margin-left: 20px; font-size: 19px;">Noraebang time! Saatnya karaoke bareng teman-teman dan seru-seruan bareng lagu favoritmu! 🎤✨</p>
+      </div>
+      <div class="btn-view-more">
+         @guest
+         <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
+         @else
+         <a class="btn btn-primer" type="submit" href="{{ route('noraebang') }}">Selengkapnya</a>
+         @endguest
+      </div>
+   </div>
+   <div class="container list-noraebang d-flex justify-content-evenly flex-wrap" style="padding-left: 0;">
+      @foreach($noraebangEvents as $nor)
+      <div class="norebang-content mb-4">
+         <div class="card cardcustom" style="width: 270px;">
+            <a href="{{ route('event.show', ['id_event' => $nor->id_event]) }}">
+            <img src="{{ asset('frontend/images/' . $nor->poster) }}" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="{{ $nor->name }}"></a>
+            <div class="card-body">
+               <div class="card-text d-flex justify-content-between" style="margin-top: -5px">
+                  <p class="btn btn-second">{{ \Carbon\Carbon::parse($nor->start_date)->format('d M Y') }}</p>
+                  <div class="card-tiket d-flex justify-content-between" style="margin-top: 5px;">
+                     <p><img src="/frontend/images/tickets.png" alt="">
+                     <p class="ms-2 fw-bold mt-1">{{ number_format($nor->price, 0, ',', '.') }}</p>
+                  </div>
+               </div>
+               <h5 class="card-title">{{$nor-> name}}</h5>
             </div>
-        </div>
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/image 92.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -5px;">
-                        <p class="btn btn-second">18 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between ">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 90.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Wonderful Days - Kim Wonpil</h5>
-                </div>
-            </div>
-        </div>
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/suho.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between">
-                        <p class="btn btn-second">19 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between ">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 100.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Su:Home Screening - Suho Birthday Party</h5>
-                </div>
-            </div>
-        </div>
-        <div class="norebang-content mb-4">
-            <div class="card cardcustom" style="width: 270px;">
-                <img src="/frontend/images/jeno.png" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="...">
-                <div class="card-body">
-                    <div class="card-text d-flex justify-content-between" style="margin-top: -5px;">
-                        <p class="btn btn-second">23 Juli 2024</p>
-                        <div class="card-tiket d-flex justify-content-between ">
-                            <p><img src="/frontend/images/tickets.png" alt="">
-                            <p class="ms-2 fw-bold mt-1"> 145.000</p>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Eyesmile Prince - Jeno Birthday Party</h5>
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+      @endforeach
+   </div>
 </div>
+<div class="container noraebang my-4">
+   <div class="title-section d-flex align-items-center mb-2">
+      <div class="col-lg-2 col-md-2 col-sm-4 garis"></div>
+      <div class="title-competition ms-3">
+         <h3>Birthday Project</h3>
+      </div>
+   </div>
+   <div class="desc-norebang d-flex mb-4 justify-content-between">
+      <div class="deskripsi col-lg-8">
+         <p style="margin-left: 20px; font-size: 19px;">Birthday bash alert! 🎁✨ Yuk, ikut Birthday Project Event dan buat hari spesial idolamu semakin istimewa</p>
+      </div>
+      <div class="btn-view-more">
+         @guest
+         <a class="btn btn-primer" type="button" onclick="showAlert()">Selengkapnya</a>
+         @else
+         <a class="btn btn-primer" type="submit" href="{{ route('birthday') }}">Selengkapnya</a>
+         @endguest
+      </div>
+   </div>
+   <div class="container list-noraebang d-flex justify-content-evenly flex-wrap" style="padding-left: 0;">
+      @foreach($birthdayEvents as $bday)
+      <div class="norebang-content mb-4">
+         <div class="card cardcustom" style="width: 270px;">
+            <a href="{{ route('event.show', ['id_event' => $bday->id_event]) }}">
+            <img src="{{ asset('frontend/images/' . $bday->poster) }}" class="card-img-top" style="width: 100%; margin-top: -10px;" alt="{{ $bday->name }}"></a>
+            <div class="card-body">
+               <div class="card-text d-flex justify-content-between" style="margin-top: -5px">
+                  <p class="btn btn-second">{{ \Carbon\Carbon::parse($bday->start_date)->format('d M Y') }}</p>
+                  <div class="card-tiket d-flex justify-content-between" style="margin-top: 5px;">
+                     <p><img src="/frontend/images/tickets.png" alt="">
+                     <p class="ms-2 fw-bold mt-1">{{ number_format($bday->price, 0, ',', '.') }}</p>
+                  </div>
+               </div>
+               <h5 class="card-title">{{$bday-> name}}</h5>
+            </div>
+         </div>
+      </div>
+      @endforeach
+   </div>
 </div>
-<footer class="footer">
-        <div class="footer-container">
-            <!-- Left Section: Logo and Email -->
-            <div class="footer-left">
-                <div class="logo-container">
-                    <img src="/frontend/images/image 102.png" alt="Logo">
-                    <span>K-EVENTS</span>
-                </div>
-                <a href="mailto:kevents@gmail.com"><i class="fa fa-envelope"></i> kevents@gmail.com</a>
-            </div>
-
-            <!-- Right Section: Horizontal Links -->
-            <div class="horizontal-links">
-                <a href="{{ route('home')}}">Beranda</a>
-                <a href="{{ route('faq-page')}}">FAQ</a>
-                <a href="{{ route('history-page')}}">Riwayat</a>
-                <a href="{{ route('more')}}">Events</a>
-            </div>
-        </div>
-
-        <!-- Credit Section -->
-        <div class="credit">
-            <span>© 2024 K-EVENTS. All Rights Reserved.</span>
-        </div>
-    </footer>
-
 @endsection

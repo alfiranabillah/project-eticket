@@ -60,7 +60,10 @@
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" name="description">{{ $item->description }}</textarea>
                         </div>
-
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <textarea class="form-control" id="category" name="category">{{ $item->category }}</textarea>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>

@@ -27,6 +27,7 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Poster</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Price</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Date</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">category</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">action</th>
                                 </tr>
                             </thead>
@@ -43,6 +44,7 @@
                                         <td class="text-center">{{ $item->poster }}</td>
                                         <td class="text-center">{{ $item->price }}</td>
                                         <td class="text-center">{{ $item->start_date }}</td>
+                                        <td class="text-center">{{ $item->category }}</td>
                                         <td class="text-center">
                                         <button type="button" class="btn btn-secondary btn-square" data-toggle="tooltip" title="Edit" onclick="window.location.href='{{ route('edit-data', $item->id_event) }}'">
                                         <i class="fas fa-edit fa-lg"></i> <!-- fa-lg for larger size -->
@@ -50,8 +52,8 @@
                                         <form action="{{ route('delete-data', $item->id_event) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-square " data-toggle="tooltip" title="Delete">
-                                        <i class="fas fa-trash fa-lg"></i> <!-- fa-lg for larger size -->
+                                        <button type="button" class="btn btn-danger btn-square" data-toggle="tooltip" title="Delete user" onclick="confirmDeletion('{{ route('delete-data', ['id_event' => $item->id_event]) }}', '{{ $index + 1 }}')">
+                                                <i class="fas fa-trash fa-lg"></i>
                                         </button>
                                         </form>
                                         </td>

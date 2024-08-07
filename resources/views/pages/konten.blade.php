@@ -1,22 +1,20 @@
 @extends('layouts.kontenhead')
 
 @section('content')
-  <div class="container-fluid">
   <div class="bungkus mt">
     <div class="box">
-      <p class="fw-bold fs-4"style="color: navy;">Noraebang Party Reboot Tour In Jakarta</p>
-      <p  style="margin-top: -5px; color: grey; font-size: 20px;"> Mall Kota Kasablanka</p>
-      <img src="/frontend/images/teum.png" width="550px" height="300px" >
+      <p class="fw-bold fs-4"style="color: navy;">{{ $event->name }}</p>
+      <p  style="margin-top: -5px; color: grey; font-size: 20px;">{{ $event->location }}</p>
+      <img src="{{ asset('frontend/images/' . $event->poster) }}" class="card-img-top" style="width:300px; margin-top: -20px; height: 400px; display:block; margin:auto;" alt="{{ $event->name }}">
       <div class="content">
         <div class="info">
            <p  style="margin-top: 20px; "><b>Deskripsi</b></p>
             <hr width="98%" size="2" color="#F25D9C" noshade>
             <div class="desc" style="margin-top: 10px;">
-            <p style="margin-bottom: 10px;"> Noraebang adalah skaraoke ala Korea Selatan yang biasanya dilakukan secara massal.  Noraebang menjadi ajang untuk berkumpul dan bernyanyi bersama teman satu fandom dan sesama K-Popers lainnya. Yuk Chingu kita seru-seruan Karokean lagu- lagu
-            k-pop hits sambil joget bareng </p> 
-           <p>Tanggal       : 25 Juli 2024</p> 
-           <p>Waktu         : 15.00 WIB - selesai</p>
-          <p>Lokasi        : Mall Kota Kasablanka</p>
+            <p style="margin-bottom: 10px;">{{ $event->description }}</p> 
+           <p>Tanggal       : {{ \Carbon\Carbon::parse($event->start_date)->format('d F Y') }}</p> 
+           <p>Waktu         : {{ \Carbon\Carbon::parse( $firstTicketTime )->format('H:i') }} WIB - selesai</p>
+          <p>Lokasi        : {{ $event->location}}</p>
           </div>
           <div class="benefit" style="margin-top: 25px;">
           <p><b>Benefit</b></p>
@@ -42,24 +40,22 @@
     <div class="box-pay ">
       <div class="box-ticket">
         <p><b>Rincian Pesanan</b></p>
-        <div class="ticket-price" style="margin-top: -5px;">Noraebang Party <br>Reboot Tour In Jakarta</div>
-        <div class="total" style="color:grey; margin-top: 20px; ">IDR 75.000</div>
-        <hr width="235%" size="1" color="grey" noshade style="margin-top: 10px; margin-bottom: 10px;">
-        <div class="total-bottom" style="color:navy; margin-top: 10px;">Total (0 tiket)</div>
-      </div>
+        <div class="ticket-price" style="margin-top: -5px;">{!! nl2br(e(wordwrap($event->name, 20, "\n", true))) !!}</div>
+        <div class="total" style="color:grey; margin-top: 20px; ">Rp {{ number_format($event->price, 0, ',', '.') }}</div>
+        </div>
       <div class="ticket-section">
         <div class="product">
           <button class="minus-btn" disabled>-</button>
           <span class="quantity">0</span>
           <button class="plus-btn">+</button>
-          
-          <div class="ticket-max">max 1 tix/user</div>
-          <div class="total-bottom-right" style="margin-bottom: 50px;" id= "price">0</div>
-          
+          <div class="ticket-max " style="margin-left: 3px;">max 1 tix/user</div>
+        </div>
+        <div class="order-bottom">
+        <div class="total-bottom">Total (0 tiket)</div>
+        <div class="total-bottom-right" style="margin-top: 3px;" id= "price">0</div>
         </div>
         <div class="additional-buttons">
-            <button class="batal" style ="margin-bottom: 100px;">Batal</button>
-            <button class="lanjut" data-bs-target="#formModal" data-bs-toggle="modal" style ="margin-bottom: 100px;">Lanjut</button>
+            <button class="lanjut" data-bs-target="#formModal" data-bs-toggle="modal" style ="margin-top: 60px;">Lanjut</button>
           </div>
       </div>      
     </div>  
@@ -76,7 +72,7 @@
             </div>
             <div class="modal-body">
                 <div class="content">
-                    <form id="payment-form">
+                    <form id="payment-form" >
                         @csrf
                         <div class="user-details">
                             <div class="input-box">
@@ -93,6 +89,7 @@
                             </div>
                         </div>
                         <input type="hidden" name="amount" id="amount">
+                        <input type="hidden" name="event_id" id="event_id" value="{{ $event->id_event }}">
                     </form>
                 </div>
             </div>
@@ -128,8 +125,9 @@
                         </tr>
                         <tr>
                             <td>Total Harga</td>
-                            <td id="confirm_amount_display">75000</td>
+                            <td id="confirm_amount_display">{{$event->price}}</td>
                         </tr>
+                        
                     </table>
                 </div>
             </div>
@@ -139,5 +137,6 @@
             </div>
         </div>
     </div>
-</div>
+
+
 @endsection
