@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class ="lain">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/frontend/libraries/bootstrap-5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/frontend/styles/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <script>
-        function downloadTicket() {
-            const element = document.getElementById('ticketContent');
-            html2pdf(element, {
-                margin:       2,
-                filename:     'tiket_event.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            });
-        }
+       function downloadTicket() {
+    const element = document.getElementById('ticketContent');
+    
+    // Pindahkan posisi scroll ke elemen untuk memastikan elemen dalam posisi tampilan
+    window.scrollTo(0, element.offsetTop);
+    
+    // Tunggu hingga gambar barcode termuat sepenuhnya sebelum memulai proses download
+    const barcodeImg = element.querySelector('.barcode img');
+    
+    barcodeImg.onload = function() {
+        const opt = {
+            margin: 0,  // Pastikan margin diatur ke 0
+            filename: 'tiket_event.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                scrollX: 0,
+                scrollY: 0,
+                // Atur background dan remove canvas margin untuk memastikan tidak ada spasi kosong
+                backgroundColor: null,
+                width: element.clientWidth,  // Setel lebar sesuai elemen
+                height: element.clientHeight  // Setel tinggi sesuai elemen
+            },
+            jsPDF: {
+                unit: 'px',
+                format: [element.clientWidth, element.clientHeight],
+                orientation: 'landscape'
+            }
+        };
+        
+        html2pdf().from(element).set(opt).save();
+    };
+
+    if (barcodeImg.complete) {
+        barcodeImg.onload();
+    }
+}
+
+
+
     </script>
     <title>K-EVENTS</title>
 </head>

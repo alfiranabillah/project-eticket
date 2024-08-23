@@ -86,45 +86,61 @@
             @if ($eventDetails[$index] !== null)
                 <!-- Modal Tiket untuk setiap order -->
                 <div class="modal fade" id="modal2-{{ $index }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal2Label-{{ $index }}" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="modal2Label-{{ $index }}">Detail Tiket</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <div class="detail-order">
-                                    <div class="ticketContainer" id="ticketContent">
-                                        <div class="ticket">
-                                            <div class="ticketTitle d-flex justify-content-center">
-                                                <p class="fs-7 text-secondary">{{$ticket_names[$index]}}</p>
-                                            </div>
-                                            <hr>
-                                            <div class="ticketSubDetail">
-                                                <div class="date fw-bold">{{$id_tickets[$index]}}</div>
-                                            </div>
-                                            <div class="ticketDetail">
-                                                <div class="judul" style="margin-top: -10px;">Event</div>
-                                                <div class="isi">{{$eventDetails[$index]->name}}</div>
-                                            </div>
-                                            <div class="ticketDetail">
-                                                <div class="judul">Waktu dan Tanggal</div>
-                                                <div class="isi">{{ \Carbon\Carbon::parse($eventDetails[$index]->start_date)->format('d M Y') }} | {{ \Carbon\Carbon::parse($ticket_times[$index])->format('H:i') }} WIB - selesai </div>
-                                            </div>
-                                            <div class="ticketDetail">
-                                                <div class="judul">Lokasi</div>
-                                                <div class="isi">{{$eventDetails[$index]->location}}</div>
-                                            </div>
-                                            <div class="barcode justify-content-center align-items-center">
-                                                <img src="/frontend/images/tiket.png" alt="" width="300px;" height="100px;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                            </div>
+                            <div class="modal-body"> <div class="detail-order"> 
+                            <div class="ticket-new" id="ticketContent">
+                <div class="ticket created-by-anniedotexe">
+                  <div class="left">
+                    <div class="image">
+                      <div class="ticket-number">
+                      <img src="{{ asset('frontend/images/' . $eventDetails[$index]->poster) }}"  width="200px" height="250px" style="margin-left: -5px;">
+                      </div>
+                    </div>
+                    <div class="ticket-info">
+                      <p class="date">
+                        @php
+                            $date = \Carbon\Carbon::parse($eventDetails[$index]->start_date);
+                        @endphp
+                        <span>{{ $date->format('l') }}</span>
+                        <span class="june-29">{{ $date->format('d F') }}</span>
+                        <span>{{ $date->format('Y') }}</span>
+                      </p>
+                      <div class="show-name">
+                        <h5>{{$ticket_names[$index]}}</h5>
+                        <h4>{!! nl2br(e(wordwrap($eventDetails[$index]->name, 20, "\n", true))) !!}</h4>
+                      </div>
+                      <p class="location"><span>{{$eventDetails[$index]->location}}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <div class="right-info-container">
+                      <div class="show-name">
+                        <h1>See You!</h1>
+                      </div>
+                      <div class="time">
+                        <p>{{ \Carbon\Carbon::parse($ticket_times[$index])->format('H:i') }} WIB - selesai </p>
+                      </div>
+                      <div class="barcode">
+                        <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code">
+                      </div>
+                      <p class="ticket-number">
+                      {{$id_tickets[$index]}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+                        
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="downloadTicket()">Download tiket</button>
+            </div>
                         </div>
                     </div>
                 </div>
