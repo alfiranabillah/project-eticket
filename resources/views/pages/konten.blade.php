@@ -3,7 +3,9 @@
 @section('content')
   <div class="bungkus mt">
     <div class="box">
+      <div class="judul">
       <p class="fw-bold fs-4"style="color: navy;">{{ $event->name }}</p>
+      </div>
       <p  style="margin-top: -5px; color: grey; font-size: 20px;">{{ $event->location }}</p>
       <img src="{{ asset('frontend/images/' . $event->poster) }}" class="card-img-top" style="width:300px; margin-top: -20px; height: 400px; display:block; margin:auto;" alt="{{ $event->name }}">
       <div class="content">

@@ -47,7 +47,7 @@
 
                 @auth
                 <div class="dropdown">
-                    <button class="btn btn-primer-atas dropdown-toggle btn-custom-width" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primer-nav dropdown-toggle btn-custom-width" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->first_name }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">

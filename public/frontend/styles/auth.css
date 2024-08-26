@@ -310,28 +310,70 @@ form .input-box span.details{
   background: #F25D9C;
   
   }
- @media(max-width: 584px){
- .container{
-  max-width: 100%;
-}
-form .user-details .input-box{
-    margin-bottom: 15px;
-    width: 100%;
+  @media(max-width: 584px) {
+    .container, .container-regis {
+      max-width: 100%;
+    }
+    
+    form .user-details .input-box-login,
+    form .user-details .input-box {
+      margin-bottom: 15px;
+      width: 100%; /* Memastikan input box memenuhi lebar container */
+    }
+    
+    .content form .user-details {
+      max-height: none; /* Menghilangkan batasan tinggi */
+      overflow-y: visible; /* Menghilangkan scrollbar */
+    }
+  
+    .container-regis {
+      height: auto; /* Mengatur tinggi otomatis untuk mengakomodasi semua input */
+    }
+  
+    .user-details::-webkit-scrollbar {
+      width: 5px; /* Lebar scrollbar jika tetap diperlukan */
+    }
+  
+    .user-details::-webkit-scrollbar-thumb {
+      background-color: #F25D9C; /* Warna scrollbar */
+      border-radius: 10px; /* Membulatkan ujung scrollbar */
+    }
+    form .user-details .input-box-login span.details,
+    form .user-details .input-box span.details {
+    font-size: 14px; /* Ukuran font lebih kecil */
+    }
+    .user-details .input-box:nth-of-type(2) {
+      margin-top: -15px; /* Mengurangi jarak antara First Name dan Last Name */
+    }
+  
+    .user-details .input-box:nth-of-type(2) span.details {
+      display: block;
+      transform: translateY(-15px); /* Menggeser label Nama Belakang ke atas */
+    }
+  
+    .user-details .input-box input[name="last_name"] {
+      transform: translateY(-15px); /* Menggeser input Nama Belakang ke atas */
+    }
+  /* Mengecilkan ukuran input form */
+  .user-details .input-box-login input,
+  .user-details .input-box input {
+    height: 30px; /* Tinggi input lebih kecil */
+    font-size: 14px; /* Ukuran font dalam input lebih kecil */
   }
-  form .category{
-    width: 100%;
   }
-  .content form .user-details{
-    max-height: 300px;
-    overflow-y: scroll;
+  
+  @media(max-width: 459px) {
+    .container .content .category {
+      flex-direction: column; /* Mengubah tata letak ke kolom pada layar kecil */
+    }
+  
+    .container-regis {
+      height: auto; /* Pastikan tinggi container menyesuaikan dengan isi */
+    }
+  
+    .content form .user-details {
+      max-height: none; /* Memastikan semua form terlihat tanpa harus di-scroll */
+      overflow-y: visible; /* Menghilangkan scrollbar */
+    }
   }
-  .user-details::-webkit-scrollbar{
-    width: 5px;
-  }
-  }
-  @media(max-width: 459px){
-  .container .content .category{
-    flex-direction: column;
-  }
-}
-
+  

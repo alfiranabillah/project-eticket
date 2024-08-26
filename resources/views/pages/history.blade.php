@@ -86,7 +86,7 @@
             @if ($eventDetails[$index] !== null)
                 <!-- Modal Tiket untuk setiap order -->
                 <div class="modal fade" id="modal2-{{ $index }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal2Label-{{ $index }}" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="modal2Label-{{ $index }}">Detail Tiket</h1>

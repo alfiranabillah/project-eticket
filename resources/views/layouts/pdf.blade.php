@@ -16,33 +16,35 @@
     
     // Pindahkan posisi scroll ke elemen untuk memastikan elemen dalam posisi tampilan
     window.scrollTo(0, element.offsetTop);
-    
+
     // Tunggu hingga gambar barcode termuat sepenuhnya sebelum memulai proses download
     const barcodeImg = element.querySelector('.barcode img');
     
     barcodeImg.onload = function() {
+        const contentWidth = element.scrollWidth;
+        const contentHeight = element.scrollHeight;
+
         const opt = {
-            margin: 0,  // Pastikan margin diatur ke 0
+            margin: 0, // Hapus margin untuk menghindari ruang kosong
             filename: 'tiket_event.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: {
-                scale: 2,
+                scale: 2,  // Gunakan skala tetap untuk kualitas gambar yang baik
                 useCORS: true,
                 allowTaint: true,
                 scrollX: 0,
                 scrollY: 0,
-                // Atur background dan remove canvas margin untuk memastikan tidak ada spasi kosong
                 backgroundColor: null,
-                width: element.clientWidth,  // Setel lebar sesuai elemen
-                height: element.clientHeight  // Setel tinggi sesuai elemen
+                width: contentWidth,  // Gunakan lebar elemen yang sebenarnya
+                height: contentHeight // Gunakan tinggi elemen yang sebenarnya
             },
             jsPDF: {
                 unit: 'px',
-                format: [element.clientWidth, element.clientHeight],
-                orientation: 'landscape'
+                format: [contentWidth, contentHeight], // Pastikan format sesuai dengan elemen
+                orientation: contentWidth > contentHeight ? 'landscape' : 'portrait' // Tetapkan orientasi berdasarkan dimensi
             }
         };
-        
+
         html2pdf().from(element).set(opt).save();
     };
 
@@ -94,7 +96,7 @@
 
                 @auth
                 <div class="dropdown">
-                    <button class="btn btn-primer-atas dropdown-toggle btn-custom-width" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primer-nav dropdown-toggle btn-custom-width" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->first_name }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">

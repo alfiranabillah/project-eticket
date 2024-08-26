@@ -234,6 +234,11 @@ form .input-box span.details{
   background-color: #F25D9C;
   border-radius: 50px;
 }
+.btn-primer-nav{
+  color: white;
+  background-color: #F25D9C;
+  border-radius: 50px;
+}
 .btn-custom-width {
   width: 150px; /* Set width as per your requirement */
 }
@@ -252,12 +257,13 @@ form .input-box span.details{
    
 }
 
-.btn-second{
+.btn-second, .btn-second-upc{
     color: #000;
     background-color: #F0EFEF;
     border-radius: 50px;
+    width: 55%
 }
-.cardcustom{
+.cardcustom, .cardcustom-upc, .cardcustom-nor, .cardcustom-bday{
     border-radius: 36px !important;
 }
 
@@ -266,40 +272,11 @@ form .input-box span.details{
 }
 
 .garis{
-    border: 1px solid #F25D9C; /* Warna pink (#F25D9C) */
+    border: 2px solid #F25D9C; /* Warna pink (#F25D9C) */
     background-color: #F25D9C; /* Jika ingin warna garis solid, juga atur warna latar belakangnya */
     height: 3px; /* Tinggi garis */
+    width: 20%;
 }
-
-@media (max-width: 1045px) {
-    .wrapper .box {
-      width: calc(50% - 10px);
-      margin: 10px 0;
-    }
-  
-    .wrapper .box-pay {
-      width: 100%; /* Mengisi lebar maksimum saat berada di bawah 1045px */
-      margin-top: 20px; /* Atur margin top agar ada jarak antara box sebelumnya dan box-pay */
-    }
-  }
-  
-  @media (max-width: 702px) {
-    .wrapper .box {
-      width: 100%; /* Mengisi lebar maksimum saat lebar layar kurang dari 702px */
-    }
-  
-    .wrapper .box-pay{
-      margin-bottom: 200px;
-    }
-  }
-  
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
-    .title-section{
-        flex-direction: column-reverse;
-        }
-}
-
 
 /* css faq */
 
@@ -355,26 +332,12 @@ display: flex;
 }
 
 .ticket-number img {
-  transform: translate(5px, 15px); /* Geser gambar ke kanan dan ke bawah */
+  transform: translate(5px, 30px); /* Geser gambar ke kanan dan ke bawah */
+  width:200px; 
+  height:250px;
+   margin-left: -5px;
 }
 
-.admit-one {
-position: absolute;
-color: darkgray;
-height: 250px;
-display: flex;
-text-align: left;
-justify-content: space-around;
-writing-mode: vertical-rl;
-transform: rotate(-180deg);
-margin-top: 15px;
-margin-left: 10px;
-}
-
-.admit-one span:nth-child(2) {
-color: white;
-font-weight: 700;
-}
 
 .left .ticket-number {
 height: 250px;
@@ -516,10 +479,12 @@ color: gray;
   margin-right: 15px;
 }
 
-.cardcustom {
+.cardcustom, .cardcustom-upc, .cardcustom-nor, .cardcustom-bday {
   margin-left: 0;
 }
-
+.cardcustom-upc{
+  width: 540px;
+}
 .title-section {
   padding-left: 20px; /* Adjust this value to align with the cards */
 }
@@ -599,4 +564,334 @@ color: gray;
   font-size: 14px;
   color: #6c757d;
   margin-top: 20px;
+}
+
+
+/* Responsive Styles for All Pages */
+@media (max-width: 1045px) {
+  /* Adjustments for Tablet/Large Mobile Devices */
+  .container, .bungkus, .content, .box, .section, .header, .footer {
+    width: 90%;
+    padding: 15px;
+    margin: auto;
+  }
+
+  .sidebar {
+    width: 50%;
+  }
+
+  .image, .content-image, .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+
+  .text-content, .details {
+    font-size: 14px;
+  }
+
+  .form-control, .input-box input, .btn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .section-title, .page-title {
+    font-size: 24px;
+  }
+
+  .table, .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for Mobile Devices */
+  .container, .bungkus, .content, .box, .section, .header, .footer {
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .image, .content-image, .thumbnail {
+    width: 100%;
+    height: auto;
+  }
+
+  .text-content, .details {
+    font-size: 13px;
+  }
+
+  .form-control, .input-box input, .btn {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .section-title, .page-title {
+    font-size: 20px;
+  }
+
+  .table, .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .navbar, .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .btn-primer-atas {
+      width: 50%; /* Ensure the button takes full width */
+      font-size: 14px; /* Adjust font size for readability */
+      text-align: center; /* Center the text inside the button */
+      margin: 25px -10px; /* Add margin for spacing */
+      border-radius: 25px; /* Slightly increase border-radius for a more rounded appearance */
+      
+  }
+
+  .cardcustom{
+    margin-top: -30px;
+  }
+
+   .cardcustom-nor, .cardcustom-bday {
+    margin-top: 20px;
+    
+   }
+
+  .btn-primer{
+    width: 110%;
+    margin-right: -10px;
+    margin-top: -80px;
+  }
+
+  .btn-second-upc{
+    width: 100%;
+    font-size: 13px;
+  }
+  .btn-second{
+    margin-left: -10px;
+    width: 60%;
+    
+  }
+
+  .cardcustom-upc img {
+    width: 100% !important; /* Override the inline style to make the image responsive */
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /
+  }
+  
+  .cardcustom-upc{
+    width: 400px; /* Reduce the width of the card */
+    padding: 0px; /* Decrease padding for a more compact layout */
+    margin: 0px; 
+  }
+
+  .card-title-upc{
+    margin-top: -30px;
+    
+  }
+  .container.list-noraebang {
+    display: flex; /* Ensure the container is a flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 0 10px; /* Add some horizontal padding to prevent cards from touching the edges */
+    gap: 20px;
+  }
+  
+  /* Adjustments for other elements */
+  .bungkus {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+  }
+
+  .bungkus .box {
+      width: 100%; /* Make the box full-width */
+      margin-bottom: 20px; /* Add space between stacked elements */
+  }
+
+  .box-pay {
+      width: 100%;
+      margin: 20px 0; /* Ensure sufficient spacing */
+  }
+
+  .desc p {
+      font-size: 14px; /* Adjust text size for readability */
+  }
+
+  .input-group form {
+      width: 100%; /* Full width form */
+      margin: 10px 0; /* Spacing adjustments */
+  }
+
+  .coba-tiket {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+      gap: 10px; /* Add gap between elements */
+  }
+
+  .plus-btn, .minus-btn {
+      width: 100%; /* Full width buttons */
+      margin-top: 10px; /* Reduce top margin */
+      font-size: 14px; /* Adjust font size */
+  }
+
+  .additional-buttons button {
+      width: 100%; /* Full width buttons */
+      margin-top: 10px; /* Adjust spacing */
+      font-size: 14px; /* Adjust font size */
+  }
+  .garis {
+    width: 20%;
+    margin-top: 10px;
+    display: flex; /* Menambah jarak atas untuk menghindari tumpang tindih */
+  }
+  .footer .footer-container {
+    flex-direction: column; /* Urutkan elemen footer secara vertikal */
+    align-items: center; /* Pusatkan elemen dalam footer */
+    text-align: center; /* Pusatkan teks dalam footer */
+    margin: 30px;
+  }
+  
+  .footer .horizontal-links {
+    margin: 1px 0; /* Tambahkan jarak margin vertikal di link footer */
+  }
+
+  .footer .credit{
+    margin-top: -10px;
+    margin: 10px;
+  }
+  .btn-custom-width {
+    width: 500px; /* Set width as per your requirement */
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .btn-primer-atas {
+      width: 50%; /* Ensure the button takes full width */
+      font-size: 14px; /* Adjust font size for readability */
+     /* Adjust padding for a more comfortable touch area */
+      text-align: center; /* Center the text inside the button */
+      margin: 20px 0; /* Add margin for spacing */
+      border-radius: 25px; /* Slightly increase border-radius for a more rounded appearance */
+  }
+
+  .btn-primer{
+    margin-top: 20px;
+  }
+  
+
+  .btn-second-upc{
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .cardcustom-upc img {
+    width: 100% !important; /* Override the inline style to make the image responsive */
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /
+  }
+  
+  .cardcustom-upc{
+    width: 400px; /* Reduce the width of the card */
+    padding: 0px; /* Decrease padding for a more compact layout */
+    margin: 0px; 
+  }
+
+  .card-title-upc{
+    margin-top: -30px;
+    
+  }
+  .container.list-noraebang {
+    display: flex; /* Ensure the container is a flexbox */
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 0 10px; /* Add some horizontal padding to prevent cards from touching the edges */
+    gap: 20px;
+  }
+  
+  /* Adjustments for other elements */
+  .bungkus {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+  }
+
+  .bungkus .box {
+      width: 100%; /* Make the box full-width */
+      margin-bottom: 20px; /* Add space between stacked elements */
+  }
+
+  .box-pay {
+      width: 100%;
+      margin: 20px 0; /* Ensure sufficient spacing */
+  }
+
+  .desc p {
+      font-size: 14px; /* Adjust text size for readability */
+  }
+
+  .input-group form {
+      width: 100%; /* Full width form */
+      margin: 10px 0; /* Spacing adjustments */
+  }
+
+  .coba-tiket {
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+      gap: 10px; /* Add gap between elements */
+  }
+
+  .plus-btn, .minus-btn {
+      width: 100%; /* Full width buttons */
+      margin-top: 10px; /* Reduce top margin */
+      font-size: 14px; /* Adjust font size */
+  }
+
+  .additional-buttons button {
+      width: 100%; /* Full width buttons */
+      margin-top: 10px; /* Adjust spacing */
+      font-size: 14px; /* Adjust font size */
+  }
+  .garis {
+    width: 20%;
+    margin-top: 10px;
+    display: flex; /* Menambah jarak atas untuk menghindari tumpang tindih */
+  }
+  .footer .footer-container {
+    flex-direction: column; /* Urutkan elemen footer secara vertikal */
+    align-items: center; /* Pusatkan elemen dalam footer */
+    text-align: center; /* Pusatkan teks dalam footer */
+  }
+  
+  .footer .horizontal-links {
+    margin: 10px 0; /* Tambahkan jarak margin vertikal di link footer */
+  }
+  .footer .credit{
+    margin-top: -20px
+  }
 }
