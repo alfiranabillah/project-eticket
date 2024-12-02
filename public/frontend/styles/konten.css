@@ -279,9 +279,10 @@ form .input-box span.details {
 }
 
 @media (max-width: 480px) {
-  html, body {
+  html, body{
     height: auto;
-    padding: 10px;
+    display: block;
+    width: auto;
   }
 
   .bungkus {
@@ -316,6 +317,79 @@ form .input-box span.details {
     justify-content: space-between;
     margin-right: 10px;
   }
+  html{
+    display: block;
+  }
+  .box-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .order-summary {
+    margin-right: 10px; /* Jarak antara teks "Rincian Pesanan" dengan konten lainnya */
+  }
+
+  .ticket-price, .total {
+    flex: 1;
+  }
+  .judul p.fw-bold.fs-4 {
+    margin-top: 150px; /* Atur margin atas untuk memberikan lebih banyak ruang */
+  }
+  .order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: navy;
+    font-weight: bold;
+    background-color: white; /* Latar belakang putih */
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+    padding: 10px; /* Padding dalam div */
+    width: 320px; /* Lebar tetap untuk kontainer */
+    margin-left: -100px;
+    transform: translateX(-60px) translateY(-50px); /* Menggeser ke kiri */
+  }
+
+  .lanjut{
+    transform: translateX(-60px) translateY(-40px); 
+  }
+  .benefit .square {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Menyesuaikan jarak antar item */
+    flex-wrap: nowrap; /* Mencegah item turun ke baris berikutnya */
+  }
+  
+  .benefit .item {
+    flex: 1; /* Membuat item memiliki lebar yang sama */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.ticket-price{
+  font-size: 15px;
+}
+
+html{
+  display: block;
+}
+.box-ticket {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+}
+.order-summary{
+  font-size: 15px;
+}
+
+.product{
+  transform: translateX(-50px);
+}
+
 
 }
 @media (max-width: 576px) {
@@ -324,6 +398,59 @@ form .input-box span.details {
   }
   .order-bottom {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: navy;
+    font-weight: bold;
+    background-color: white; /* Latar belakang putih */
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+    padding: 10px; /* Padding dalam div */
+    width: 320px; /* Lebar tetap untuk kontainer */
+    margin-top: 140px; /* Margin atas */
+    margin-left: -100px;
+    transform: translateX(-15px); /* Menggeser ke kiri */
+  }
+
+  .lanjut{
+    transform: translateY(-25px); 
+  }
+  .benefit .square {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Menyesuaikan jarak antar item */
+    flex-wrap: nowrap; /* Mencegah item turun ke baris berikutnya */
+  }
+  
+  .benefit .item {
+    flex: 1; /* Membuat item memiliki lebar yang sama */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+html{
+  display: block;
+}
+.box-ticket {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+}
+
+.order-summary {
+  white-space: nowrap; /* Mencegah teks membungkus ke baris berikutnya */
+}
+
+.ticket-price, .total {
+  flex: 1;
+}
+.judul p.fw-bold.fs-4 {
+  margin-top: 150px; /* Atur margin atas untuk memberikan lebih banyak ruang */
+}
+.order-bottom {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   color: navy;
@@ -332,11 +459,136 @@ form .input-box span.details {
   border-radius: 15px; /* Sudut melengkung */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
   padding: 10px; /* Padding dalam div */
-  width: 430px; /* Lebar tetap untuk kontainer */
-  margin-top: 100px; /* Margin atas */
-  margin-left: -200px;
-  transform: translateX(-9px); /* Menggeser ke kiri */
+  width: 320px; /* Lebar tetap untuk kontainer */
+  margin-left: -100px;
+  transform: translateX(-60px) translateY(-50px); /* Menggeser ke kiri */
+}
 
+.lanjut{
+  transform: translateX(-60px) translateY(-40px); 
+}
+.benefit .square {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Menyesuaikan jarak antar item */
+  flex-wrap: nowrap; /* Mencegah item turun ke baris berikutnya */
+}
+
+.benefit .item {
+  flex: 1; /* Membuat item memiliki lebar yang sama */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ticket-price{
+font-size: 15px;
+}
+
+html{
+display: block;
+}
+.box-ticket {
+display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+}
+.order-summary{
+font-size: 15px;
+}
+
+.product{
+transform: translateX(-50px);
+}
+  }
+ 
+  @media (max-width: 375px) {
+    .box-pay{
+      width: 390px;
+      order: 2;
+      transform: translateX(-10px);
+    }
+    .item p{
+      font-size: 8px;
+    }
+    body{
+      display: block;
+    }
+    .judul p.fw-bold.fs-4 {
+      margin-top: 150px; /* Atur margin atas untuk memberikan lebih banyak ruang */
+    }
+    .order-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: navy;
+      font-weight: bold;
+      background-color: white; /* Latar belakang putih */
+      border-radius: 15px; /* Sudut melengkung */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+      padding: 10px; /* Padding dalam div */
+      width: 320px; /* Lebar tetap untuk kontainer */
+      margin-top: 140px; /* Margin atas */
+      margin-left: -100px;
+      transform: translateX(-15px); /* Menggeser ke kiri */
+    }
+  
+    .lanjut{
+      transform: translateY(-25px); 
+    }
+    .benefit .square {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px; /* Menyesuaikan jarak antar item */
+      flex-wrap: nowrap; /* Mencegah item turun ke baris berikutnya */
+    }
+    
+    .benefit .item {
+      flex: 1; /* Membuat item memiliki lebar yang sama */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+  html{
+    display: block;
+  }
+  .box-ticket {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+  }
+  
+  .order-summary {
+    white-space: nowrap; /* Mencegah teks membungkus ke baris berikutnya */
+  }
+  
+  .ticket-price, .total {
+    flex: 1;
+  }
+  .judul p.fw-bold.fs-4 {
+    margin-top: 150px; /* Atur margin atas untuk memberikan lebih banyak ruang */
+  }
+  .order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: navy;
+    font-weight: bold;
+    background-color: white; /* Latar belakang putih */
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+    padding: 10px; /* Padding dalam div */
+    width: 320px; /* Lebar tetap untuk kontainer */
+    margin-left: -100px;
+    transform: translateX(-60px) translateY(-50px); /* Menggeser ke kiri */
+  }
+  
+  .lanjut{
+    transform: translateX(-60px) translateY(-40px); 
   }
   .benefit .square {
     display: flex;
@@ -352,6 +604,147 @@ form .input-box span.details {
     align-items: center;
     text-align: center;
   }
+  
+  .ticket-price{
+  font-size: 15px;
+  }
+  
+  html{
+  display: block;
+  }
+  .box-ticket {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+  }
+  .order-summary{
+  font-size: 15px;
+  }
+  
+  .product{
+  transform: translateX(-50px);
+  }
+    }
 
-}
+    @media (max-width: 390px) {
 
+      .box-pay{
+        width: 390px;
+        transform: translateX(0px);
+      }
+      .item p{
+        font-size: 12px;
+      }
+      .judul p.fw-bold.fs-4 {
+        margin-top: 150px; /* Atur margin atas untuk memberikan lebih banyak ruang */
+      }
+      .order-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: navy;
+        font-weight: bold;
+        background-color: white; /* Latar belakang putih */
+        border-radius: 15px; /* Sudut melengkung */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+        padding: 10px; /* Padding dalam div */
+        width: 320px; /* Lebar tetap untuk kontainer */
+        margin-top: 140px; /* Margin atas */
+        margin-left: -100px;
+        transform: translateX(-15px); /* Menggeser ke kiri */
+      }
+    
+      .lanjut{
+        transform: translateY(-25px); 
+      }
+      .benefit .square {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px; /* Menyesuaikan jarak antar item */
+        flex-wrap: nowrap; /* Mencegah item turun ke baris berikutnya */
+      }
+      
+      .benefit .item {
+        flex: 1; /* Membuat item memiliki lebar yang sama */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    html{
+      display: block;
+    }
+    .box-ticket {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+    }
+    
+    .order-summary {
+      white-space: nowrap; /* Mencegah teks membungkus ke baris berikutnya */
+    }
+    
+    .ticket-price, .total {
+      flex: 1;
+    }
+    .judul p.fw-bold.fs-4 {
+      margin-top: 150px; /* Atur margin atas untuk memberikan lebih banyak ruang */
+    }
+    .order-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: navy;
+      font-weight: bold;
+      background-color: white; /* Latar belakang putih */
+      border-radius: 15px; /* Sudut melengkung */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efek timbul diperhalus */
+      padding: 10px; /* Padding dalam div */
+      width: 320px; /* Lebar tetap untuk kontainer */
+      margin-left: -100px;
+      transform: translateX(-60px) translateY(-50px); /* Menggeser ke kiri */
+    }
+    
+    .lanjut{
+      transform: translateX(-60px) translateY(-40px); 
+    }
+    .benefit .square {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px; /* Menyesuaikan jarak antar item */
+      flex-wrap: nowrap; /* Mencegah item turun ke baris berikutnya */
+    }
+    
+    .benefit .item {
+      flex: 1; /* Membuat item memiliki lebar yang sama */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .ticket-price{
+    font-size: 15px;
+    }
+    
+    html,body{
+    display: block;
+    }
+    .box-ticket {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Jika elemen terlalu panjang, ini akan memaksa mereka ke baris baru */
+    }
+    .order-summary{
+    font-size: 15px;
+    }
+    
+    .product{
+    transform: translateX(-50px);
+    }
+      }
+   
+  

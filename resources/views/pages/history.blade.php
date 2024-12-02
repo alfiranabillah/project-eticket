@@ -127,7 +127,7 @@
                         <p>{{ \Carbon\Carbon::parse($ticket_times[$index])->format('H:i') }} WIB - selesai </p>
                       </div>
                       <div class="barcode">
-                        <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code">
+                      <img src="{{ asset('frontend/images/barcode.png') }}">
                       </div>
                       <p class="ticket-number">
                       {{$id_tickets[$index]}}

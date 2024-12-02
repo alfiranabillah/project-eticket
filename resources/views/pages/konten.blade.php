@@ -40,11 +40,15 @@
       </div>
     </div>
     <div class="box-pay ">
-      <div class="box-ticket">
-        <p><b>Rincian Pesanan</b></p>
-        <div class="ticket-price" style="margin-top: -5px;">{!! nl2br(e(wordwrap($event->name, 20, "\n", true))) !!}</div>
-        <div class="total" style="color:grey; margin-top: 20px; ">Rp {{ number_format($event->price, 0, ',', '.') }}</div>
-        </div>
+    <div class="box-ticket d-flex">
+    <p class="order-summary d-flex"><b>Rincian Pesanan</b></p>
+    <div class="ticket-price" style="margin-top: -5px;">
+        {!! nl2br(e(wordwrap($event->name, 35, "\n", true))) !!}
+    </div>
+    <div class="total d-flex" style="color:grey; margin-top: 20px;">
+        Rp {{ number_format($event->price, 0, ',', '.') }}
+    </div>
+</div>
       <div class="ticket-section">
         <div class="product">
           <button class="minus-btn" disabled>-</button>

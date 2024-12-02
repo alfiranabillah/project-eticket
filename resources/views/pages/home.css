@@ -1059,7 +1059,7 @@ color: gray;
   }
   .btn-primer{
     width: 110%;
-    transform: translateY(100px);
+    transform: translateY(70px);
     
   }
 
@@ -1084,7 +1084,7 @@ color: gray;
   }
   
   .cardcustom-upc{
-    width: 350px; /* Reduce the width of the card */
+    width: 370px; /* Reduce the width of the card */
     padding: 0px; /* Decrease padding for a more compact layout */
     margin: 0px; 
   }
@@ -1202,7 +1202,7 @@ color: gray;
   }
   
   .cardcustom-upc{
-    width: 250px; /* Reduce the width of the card */
+    width: 330px; /* Reduce the width of the card */
     padding: 0px; /* Decrease padding for a more compact layout */
     margin: 0px; 
   }
