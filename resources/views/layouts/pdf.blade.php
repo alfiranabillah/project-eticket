@@ -67,7 +67,7 @@
                     <img src="/frontend/images/image 102.png" alt="">
                 </div>
                 <div class="title-navbar fw-bold" style="color: #F25D9C; font-size: 20px;">
-                    K-EVENTS
+                    G-POINT
                 </div>
             </div>
 
@@ -121,9 +121,9 @@
             <div class="footer-left">
                 <div class="logo-container">
                     <img src="/frontend/images/image 102.png" alt="Logo">
-                    <span>K-EVENTS</span>
+                    <span>G-POINT</span>
                 </div>
-                <a href="mailto:kevents@gmail.com"><i class="fa fa-envelope"></i> kevents@gmail.com</a>
+                <a href="mailto:kevents@gmail.com"><i class="fa fa-envelope"></i> gpoint@gmail.com</a>
             </div>
 
             <!-- Right Section: Horizontal Links -->

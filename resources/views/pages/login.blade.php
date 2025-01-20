@@ -9,7 +9,7 @@
         <a href="{{ route('home') }}" class="back-link"> &lt; Kembali ke beranda</a>
         <div class="logo-login">
             <img src="/frontend/images/image 102.png" width="40px" height="40px">
-            <p> K-EVENTS </p>
+            <p> G-POINT </p>
         </div>
     </div>
     <div class="title"><b>Login</b></div>
